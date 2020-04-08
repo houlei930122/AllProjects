@@ -1,0 +1,25 @@
+{
+    "deploy": {
+        "packages": [{
+            "files": [
+                "**/*",
+            ],
+            "exclude": [
+                "node_modules/**",
+                ".git/**",
+                ".vscode/**",
+                "**/node_modules/**",
+            ],
+            "deployOnSave": false
+        }],
+        "targets": [{
+            "type": "sftp",
+            "name": "AliyunServer",
+            "dir": "/root/source/frontend",
+            "host": "47.99.82.202",
+            "port": 22,
+            "user": "root",
+            "privateKey": "C:/Users/8/.ssh/mr-key"
+        }]
+    },
+}

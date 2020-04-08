@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  nginx:
+    restart: always
+    image: nginx
+    ports:
+      - 8091:80
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./project/dist:/var/www/html/
+      - ./static/:/static/
+
+      # volumes 定义容器和宿主机的卷映射关系
+      #将./project/dist映射到服务器 /var/www/html目录下
