@@ -48,6 +48,6 @@ module.exports = appInfo => {
     },
     jwt: {
       secret: '@houlasdasd!-',
-    }
+    },
   }
 }

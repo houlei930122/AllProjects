@@ -22,7 +22,7 @@ class UserController extends BaseController {
     }
     const user = await ctx.model.User.findOne({
       email,
-      passwd: md5(passwd + HashSalt)
+      passwd: md5(passwd + HashSalt),
     })
     if (!user) {
       return this.error('用户名密码错误')

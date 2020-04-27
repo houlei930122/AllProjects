@@ -19,7 +19,7 @@ module.exports = ({ app }) => {
     } catch (error) {
       console.log(error)
       // eslint-disable-next-line eqeqeq
-      if (error.name === 'TokenExpiredError' ) {
+      if (error.name === 'TokenExpiredError') {
         ctx.body = {
           code: -666,
           message: '登录过期了',

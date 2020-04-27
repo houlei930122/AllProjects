@@ -14,7 +14,7 @@ module.exports = app => {
 
   // 图片上传
   router.post('/uploadfile', controller.util.uploadfile)
-  
+
   // 组件路由 ，示例/user/register
   router.group({ name: 'user', prefix: '/user' }, router => {
     const { info, register, login, verify } = controller.user
