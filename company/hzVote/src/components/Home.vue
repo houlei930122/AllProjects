@@ -1,19 +1,69 @@
 <template>
   <div class="home">     
+  
     <img class="logo" src="./../assets/logo1.png" alt="" srcset="">
+    
     <div class="tit"></div>
     <div class="arrow"></div>
+    <button class="login" @click="login">登录</button>
+    <button class="logout" @click="logout">注销</button>
+    <p class="hint" v-if="isLogin">{{welcome}}</p>
+
+
+    <input type="text" v-model.trim="test">
+    <p class="test">{{test}}</p>
+
   </div>
 </template>
 
 <script>
+  //映射 mapState()/mapMutations()/mapActions()/mapGetters()
+  //通过这些映射方法可以让大家少敲几个字，避免对$store的直接访问
+  import {mapState, mapMutations,mapActions,mapGetters} from 'vuex'
+
   export default {
-    methods: {
-      goRules() {
-        this.$router.push('/rules')
+    data() {
+      return {
+        test:''
       }
     },
+    computed: {
+      ...mapState('user',['isLogin']),  //使用this.isLogin 就可以直接访问到user.js里面的state了
+      ...mapGetters('user',['welcome'])
+    },
+    methods: { 
+     
+       ...mapActions(['user/login']),
+      login(){
+        
+        // 提交mutation变更状态
+        // this.$store.commit('user/login')
+        // 派发动作，触发actions
+        // this.$store.dispatch('user/login', 'admin')  //模块化的使用方式
+        this['user/login']('admin')     //映射使用方法
+        setTimeout(() => {
+          // console.log( this.$store.state.isLogin )  //使用模块化之前的操作
+          console.log( this.$store.state.user.isLogin )  //使用木块化之后的获取状态方法
+        }, 2000);
+        console.log(this.isLogin)
+        
+      },
+      logout(){
+        this.$store.commit('user/logout')     
+        console.log( this.$store.state.isLogin )
+      },
+       goRules() {
+        this.$router.push('/rules')
+      },
+     
+    },
+    updated() {
+      // console.log( this.$store.state.isLogin )
+    },
     mounted () {
+      console.log( this.$store.state.isLogin )
+
+
       const self = this
       getSlipDir('.home',function(dir){
         if(dir === 'up'){
@@ -86,6 +136,27 @@
 </script>
 
 <style scoped>
+.hint{
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  padding-left: 1rem;
+  color: red;
+  font-size: 24px;
+}
+input{
+  position:absolute;
+  left:0;
+  top:200px;
+  
+}
+.test{
+   position:absolute;
+  left:0;
+  top:250px;
+  color:red;
+  font-size:20px;
+}
   .home{
     position: relative;
     width: 100%;
@@ -118,5 +189,21 @@
     height: 0.44rem;
     margin-left: -0.375rem;
     background:url('../assets/arrow.png')   no-repeat 0 0/100% 100% ;
+  }
+  .login{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+    padding: 0.2rem;
+    font-size: 0.3rem;
+  }
+  .logout{
+    position: absolute;
+    left: 1.58rem;
+    top: 0;
+    z-index: 9999999;
+    padding: 0.2rem;
+    font-size: 0.3rem;
   }
 </style>

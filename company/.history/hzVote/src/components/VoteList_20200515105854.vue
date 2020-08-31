@@ -1,0 +1,85 @@
+<template>
+  <div class="vote-wrap">
+    <div class="vote-con">
+
+      <div class="vote-sort">
+        <div class="vote-tit">十大创意设计美宿</div>
+        <div class="vote-list">
+          <div class="vote-item">
+            <div class="item-img">
+              <img src="./../assets/m1.png" alt="">
+            </div>
+            <div class="item-msg">
+              <div class="item-no">01</div>
+              <div class="item-name">宿里·莫干山FUN轻奢度假酒店</div>
+            </div>
+            <div class="godetails">查看详情>>></div>
+            <div class="item-num">
+              <div class="vote-num">888 票</div>
+              <div class="vote-btn">
+                <img src="./../assets/tick.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vote-btn"></div>
+      </div>
+
+
+    </div>
+      <button @click="goDetails(1)">详情页</button>
+  </div>
+</template>
+
+<script>
+  export default {
+    methods: {
+      goDetails(id) {
+        console.log(id)
+        this.$router.push({
+          path:'/details',
+          query:{id:id}
+        })
+      }
+    },
+  }
+</script>
+
+<style scoped>
+  .vote-wrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #f4f4f4;
+    overflow-x:hidden ;
+    overflow-y:scroll ;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.86rem 0.44rem ;
+    background:url('../assets/bg.jpg')   no-repeat 0 0/100% 100% ;
+  }
+  .vote-con{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    /* padding: 0.45rem 0 0 0.4rem; */
+  }
+  .vote-con .vote-sort{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 0.46rem;
+  }
+  .vote-sort .vote-tit{
+    position: relative;
+    width: ;
+    background: #ca3301;
+    text-align: center;
+    width: 5.8rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.3rem;
+    color: #fff;
+  }
+
+</style>
