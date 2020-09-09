@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html style="font-size: ;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>教师节</title>
+        <script type="text/javascript">
+          ; (function (doc, win, undefined) {
+            var docEl = doc.documentElement,
+              resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+              recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (clientWidth === undefined) return;
+                docEl.style.fontSize = 100 * (clientWidth / 1125) + 'px';
+              };
+            if (doc.addEventListener === undefined) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false)
+          })(document, window);
+        </script>
+    <link rel="stylesheet" href="./static/app.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

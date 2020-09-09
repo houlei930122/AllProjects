@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html style="font-size: 33.3333px;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>测一测你最对不起哪科老师</title>
+        <script type="text/javascript">
+          ; (function (doc, win, undefined) {
+            var docEl = doc.documentElement,
+              resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+              recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (clientWidth === undefined) return;
+                docEl.style.fontSize = 100 * (clientWidth / 1125) + 'px';
+              };
+            if (doc.addEventListener === undefined) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false)
+          })(document, window);
+        </script>
+    <link rel="stylesheet" href="./static/app.css">
+      <style>
+        .music {
+          position: fixed;
+          top: 0.5rem;
+          right: 0.5rem;
+          z-index: 1999;
+          width: 1rem;
+          height: 1rem;
+          background-image: url("https://adproject.thepaper.cn/adproject/2020/09/teacherDay/music.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat
+        }
+      
+        .music_on {
+          background-image: url("https://adproject.thepaper.cn/adproject/2020/09/teacherDay/music.png");
+          animation: musicroate 2s linear infinite;
+          -webkit-animation: musicroate 2s linear infinite
+        }
+      
+        @keyframes musicroate {
+          from {
+            transform: rotate(0);
+            -webkit-transform: rotate(0)
+          }
+      
+          to {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg)
+          }
+        }
+      
+        @-webkit-keyframes musicroate {
+          from {
+            transform: rotate(0);
+            -webkit-transform: rotate(0)
+          }
+      
+          to {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg)
+          }
+        }
+      </style>
+  </head>
+  <body>
+    <div class="music music_on"></div>
+    <audio style="display:none;" id="bgmusic" autoplay="autoplay" preload="auto"
+      src="https://adproject.thepaper.cn/adproject/2020/09/teacherDay/bg.mp3" loop="loop"></audio>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script charset="utf-8" src="//res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+  <script src="//adproject.thepaper.cn/adproject/2020/08/nuclear/js/jquery.min.js"></script>
+  <script src="//adproject.thepaper.cn/adproject/2020/08/nuclear/js/share.js"></script>
+  <script>
+    window.onload = function () {
+      autoPlayMusic();
+      function autoPlayMusic() {
+        function musicInBrowserHandler() {
+          musicPlay(true)
+        }
+        document.body.addEventListener('touchstart', musicInBrowserHandler);
+        musicInWeixinHandler();
+
+        function musicInWeixinHandler() {
+          musicPlay(true);
+          document.addEventListener("WeixinJSBridgeReady", function () {
+            musicPlay(true)
+          }, false);
+          document.removeEventListener('DOMContentLoaded', musicInWeixinHandler)
+        }
+        function musicPlay(isPlay) {
+          var media1 = document.querySelector('#bgmusic');
+          if (isPlay && media1.paused) {
+            var videoPlay = media1.play();
+            videoPlay.then(() => {
+              media1.play();
+              document.body.removeEventListener('touchstart', musicInBrowserHandler);
+              $('.music').addClass('music_on');;
+              $('.music').attr('ison', '1')
+            }).catch((err) => {
+              $('.music').removeClass('music_on');
+              $('.music').attr('ison', '0')
+            })
+          }
+          if (!isPlay && !media.paused) {
+            media1.pause();
+            $('.music').removeClass('music_on');
+            $('.music').attr('ison', '0')
+          }
+        }
+      }
+      $(".music").click(function () {
+        if ($(".music").attr("ison") == "1") {
+          $(".music").attr("ison", "0");
+          document.getElementById("bgmusic").pause();
+          $(".music").removeClass('music_on')
+        } else {
+          $(".music").attr("ison", "1");
+          document.getElementById("bgmusic").play();
+          $(".music").addClass('music_on')
+        }
+      });
+      shareInfo = {
+        '_title': '测一测你最对不起哪科老师',
+        '_desc': '澎湃新闻·教师节特献',
+        '_link': location.href.split('#')[0],
+        '_imgUrl': 'https://adproject.thepaper.cn/adproject/2020/09/teacherDay/share.jpg',
+        '_type': 'link'
+      }
+      shareMsg(shareInfo._title, shareInfo._desc, shareInfo._link, shareInfo._imgUrl, shareInfo._type);
+    }
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b92c52d41d42f3476ab5c8e57c76f289";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</html>
