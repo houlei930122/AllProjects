@@ -55,7 +55,7 @@
     <transition name="fadedialog" >
       <div class="input-wrap" v-if="isComplete">
         <div class="input-content">
-          <input v-model="name" class="name" maxlength="4" type="text">
+          <input v-model="name" @blur.prevent="changeInput()" class="name" maxlength="6" type="text">
           <div class="commit" @click="commit"></div>
         </div>
       </div>
@@ -188,7 +188,6 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.subArr)
     this.sumArr = [
       ...getRandomArrayElements(questionBack1,2),
       ...getRandomArrayElements(questionBack2,2),
@@ -200,27 +199,7 @@ export default {
       ...getRandomArrayElements(questionBack8,2),
       ...getRandomArrayElements(questionBack9,2),
       ]
-    // console.log(this.sumArr)
 
-    // 取出当前题目信息，并赋值渲染
-    // const qArr = this.sumArr[this.questionIndex]
-    // // console.log(qArr)
-    // //需要判断是否是音乐的情况
-    // this.issueWord = qArr['question']
-    // this.answerIndex = qArr['answer']
-    // var issArr = qArr['options'].map(val=>{
-    //   return {
-    //     act:false,
-    //     word:val['word']
-    //   }
-    // })
-    // console.log(issArr)
-    // this.issueList = issArr
-    
-    // this.initQuestion()
-    // setTimeout(() => {
-    //   this.isdialog = true
-    // }, 500);
   },
   methods: {
     chooseQ(id){
@@ -264,7 +243,7 @@ export default {
         return
       }
       const qArr = this.sumArr[this.questionIndex]
-      console.log(qArr)
+      
       //需要判断是否是音乐的情况
       this.issueWord = qArr['question']
       this.answerIndex = qArr['answer']
@@ -293,10 +272,10 @@ export default {
       }, 100);
     },
     commit(){
-      // if(!this.name) return
+      if(!this.name) return
       const that = this
       const gArr = this.gradeArr
-      console.log(this.name,gArr)
+      
       const qNum = gArr.reduce((acc,cur)=>acc+cur)
       let level = '';
       let percent = '';
@@ -332,8 +311,7 @@ export default {
         win = 0;
         tNum = 9-tNum
       }
-      console.log(level,percent,lineWord1,lineWord2,lineWord3,lineWord4)
-      console.log(tNum,win)
+   
       let bgArr = ['./static/err_bg.jpg','./static/suc_bg.jpg']
       let lineArr1 = ['./static/word1_1.png','./static/word1_2.png']
       let lineArr2 = ['./static/word2_1.png','./static/word2_2.png']
@@ -379,8 +357,10 @@ export default {
           ctx.textBaseline = "top";
           ctx.fillStyle = "#c02827";
           ctx.textAlign = "left";
+          ctx.font = "144px 微软雅黑";
           ctx.fillText(level, 686, 408);
           ctx.textAlign = "center";
+          ctx.font = "144px gbk";
           ctx.fillText(percent, 560, 580);
           ctx.fillText(tNum, 556, 790);
           const careimg = canvas.toDataURL("image/jpeg", 1);
@@ -391,6 +371,9 @@ export default {
         }
       }
       drawing(0);
+    },
+    changeInput(){
+      window.scrollTo(0, 0);
     },
     closeDialog(){
       this.isdialog = false;
@@ -436,7 +419,7 @@ export default {
     teacherIndex: {
       immediate: false,
       handler(newValue,  oldValue) {
-        console.log(newValue,oldValue)
+  
         const len = this.gradeArr.length-1
         const last = this.gradeArr[len]
         const last1 = this.gradeArr[len-1]
@@ -681,12 +664,12 @@ export default {
 .hint-save{
   position: absolute;
   left: 0;
-  bottom: 10%;
+  bottom: 3%;
   width: 100%;
   text-align: center;
   font-size: 0.5rem;
   color: #fff;
-  animation: hintsave 2s infinite ease-in;
+  animation: hintsave 5s infinite ease-in;
 }
 .font-s{
   position: absolute;
