@@ -41,7 +41,7 @@ export default {
         this.$router.push({
           path:'/question'
         })
-      }, 4000);
+      }, 1000);
   },
   methods: {
     hideUp(){
