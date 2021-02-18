@@ -240,9 +240,9 @@ export default {
           if(task){
             // 报错重试，超过3次结束
             if(isStop) return
-            try {              
-              // todo  
-              // 发送请求 
+            try {
+              // 发送请求，resolve()
+              // todo   
               // await function(){}
               if (counter === len-1) {
                 // 最后一个任务,全部执行成功
@@ -260,6 +260,7 @@ export default {
                 isStop = true; // 取消重试
                 reject()
               }
+
             }
           }
         }

@@ -2,9 +2,10 @@ import Vue from 'vue'
 import axios from 'axios'
 import { MessageBox } from 'element-ui'
 const service = axios.create({
-  //timeout:1000, //超时
+  //timeout:1000,
   baseURL: '/api',
 })
+
 //请求拦截
 export default ({store, redirect}) => {   //可以传递redirect方法
   //主要做token的管理

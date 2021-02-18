@@ -235,23 +235,22 @@ export default {
         const len = chunks.length
         let counter = 0
         let isStop = false  //是否停止上传，出现3个错误停止上传
-        const start = async ()=>{
-          const task = chunks.shift()   // 
+        const start = ()=>{
+          const task = chunks.shift()
           if(task){
             // 报错重试，超过3次结束
             if(isStop) return
-            try {              
-              // todo  
-              // 发送请求 
-              // await function(){}
+            try {
+              // 发送请求，resolve()
+              // todo
               if (counter === len-1) {
-                // 最后一个任务,全部执行成功
+                // 最后一个任务
                 resolve()
               } else{
                 counter++
                 start()
               }
-            } catch (e) {
+            } catch (error) {
               if(task.error<3){
                 task.error++   // 统计报错次数，如果超过3次，就取药重试
                 chunks.unshift(task)   // 将报错的提交，添加到有待执行的第一个，再次重试
@@ -260,14 +259,20 @@ export default {
                 isStop = true; // 取消重试
                 reject()
               }
+
             }
           }
         }
-        while (limit>0) {  // 同时启动limit个请求
+        while (limit>0) {
+          // 启动下一个任务
           start()
           limit-=1
         }
+
       })
+
+
+
     },
     handleFileChange(e) {
       const [file] = e.target.files;

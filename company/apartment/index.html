@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>西城公寓</title>
+    <script type="text/javascript">     
+      ;(function(doc, win, undefined) {
+        var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in win ? 'orientationchange' : 'resize',
+          recalc = function() {
+            var clientWidth = docEl.clientWidth>600?600:docEl.clientWidth;
+            
+            if(clientWidth === undefined) return;
+            docEl.style.fontSize = 100 * (clientWidth / 1080) + 'px';
+          };
+        if(doc.addEventListener === undefined) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false)
+      })(document, window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+
+  <body>
+  	<div class="loading-page ">
+  		<div class="loading-con">
+  			<div class="loading-num">0%</div>
+  			<div class="loading-progress">
+  				<div class="progress"></div>
+  			</div>
+  		</div>
+  	</div>
+    <div class="wrap">
+    	<div class="door-wrap">
+    		<div class="door-con">
+    			<div class="open-icon"></div>
+    		</div>
+    		<div class="door-no"></div>
+    		<canvas id="door" width="" height=""></canvas>
+    	</div>
+    	<div class="canvas-wrap" id="canvasContainer"></div>
+    	<div class="btn-wrap">
+    		<div class="hint-click"></div>
+    	</div>	
+    	<div class="res-page hide">
+    		<div class="replay-btn"></div>
+    		<div class="share-btn"></div>	    		
+    	</div>
+    	
+    	
+		</div>
+		<div class="music"></div>
+		<audio style="display:none;" id="bgmusic" autoplay="autoplay" preload="auto" src="public/bgm.mp3" loop="loop"></audio>
+  </body>
+	<script src="public/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="public/share.js" type="text/javascript" charset="utf-8"></script>
+	<script src="public/l.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

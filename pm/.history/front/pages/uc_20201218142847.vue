@@ -260,6 +260,7 @@ export default {
                 isStop = true; // 取消重试
                 reject()
               }
+
             }
           }
         }

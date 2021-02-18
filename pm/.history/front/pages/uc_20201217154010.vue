@@ -204,70 +204,29 @@ export default {
     },
 
     // 切片上传逻辑
-    // async uploadChunks(){
-    //   // this.chunks = this.createFileChunk(this.file);
-    //   // console.log(this.chunks);
-    //   // const hash1 = await this.calculateHashWorker();
-    //   const requests = this.chunks.map((chunk,index)=>{
-    //     // 转成promise
-    //     const form = new FormData()
-    //     form.append('chunk',chunk.chunk)
-    //     form.append('hash',chunk.hash)
-    //     form.append('name',chunk.name)
-    //     return form
-    //   }).map((form,index)=>this.$http.post('/uploadfile' ,form, {
-    //     onUploadProgress: (progress) => {
-    //       //onUploadProgress 监听文件上传进程，计算百分比
-    //       console.log(progress.loaded);
-    //       this.uploadProgress = Number(
-    //         ((progress.loaded / progress.total) * 100).toFixed(2)
-    //       );
-    //     },
-    //   })
-    // },
-
-    // 并发控制
-    sendRequest(chunks,limit=3){
-      // chunks 并发的
-      // 一个数组，长度是limit
-      // [task1,task2,task3]
-      return new Promise((resolve,reject)=>{
-        const len = chunks.length
-        let counter = 0
-        let isStop = false  //是否停止上传，出现3个错误停止上传
-        const start = async ()=>{
-          const task = chunks.shift()   // 
-          if(task){
-            // 报错重试，超过3次结束
-            if(isStop) return
-            try {              
-              // todo  
-              // 发送请求 
-              // await function(){}
-              if (counter === len-1) {
-                // 最后一个任务,全部执行成功
-                resolve()
-              } else{
-                counter++
-                start()
-              }
-            } catch (e) {
-              if(task.error<3){
-                task.error++   // 统计报错次数，如果超过3次，就取药重试
-                chunks.unshift(task)   // 将报错的提交，添加到有待执行的第一个，再次重试
-                start()
-              }else{
-                isStop = true; // 取消重试
-                reject()
-              }
-            }
-          }
-        }
-        while (limit>0) {  // 同时启动limit个请求
-          start()
-          limit-=1
-        }
+    async uploadChunks(){
+      // this.chunks = this.createFileChunk(this.file);
+      // console.log(this.chunks);
+      // const hash1 = await this.calculateHashWorker();
+      const requests = this.chunks.map((chunk,index)=>{
+        // 转成promise
+        const form = new FormData()
+        form.append('chunk',chunk.chunk)
+        form.append('hash',chunk.hash)
+        form.append('name',chunk.name)
+        return form
+      }).map((form,index)=>this.$http.post('/uploadfile' ,form, {
+        onUploadProgress: (progress) => {
+          //onUploadProgress 监听文件上传进程，计算百分比
+          console.log(progress.loaded);
+          this.uploadProgress = Number(
+            ((progress.loaded / progress.total) * 100).toFixed(2)
+          );
+        },
       })
+
+
+
     },
     handleFileChange(e) {
       const [file] = e.target.files;
