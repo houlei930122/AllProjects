@@ -12,7 +12,6 @@
               @blur="changeBlur"
               v-model="keyWord"
               placeholder="行业、公司简称、股票代码 "
-              @keyup.enter="searchFn(keyWord)"
             />
           </div>
           <div class="submit" @click="searchFn(keyWord)"></div>
@@ -291,7 +290,7 @@ export default {
         initData.nowData = initData.allData
       }else{
         initData.nowData = initData.allData.filter((item) => {
-          if ((item[0].search(word) != -1) || (item[1].search(word) != -1) || (item[4].search(word) != -1)) {
+          if (item[0] == word || item[1] == word || item[4] == word) {
             return item;
           }
         });
@@ -351,7 +350,7 @@ export default {
   methods: {
     hideExplain() {
       this.hintexplain = true;
-      // localStorage.setItem('hintexplain',true)
+      localStorage.setItem('hintexplain',true)
     },
     showCompany() {
       this.company = true;
@@ -359,7 +358,6 @@ export default {
     hideCompany() {
       this.company = false;
     },
-
     goUccn() {
       //去官网
       window.location.href =

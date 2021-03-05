@@ -12,7 +12,6 @@
               @blur="changeBlur"
               v-model="keyWord"
               placeholder="行业、公司简称、股票代码 "
-              @keyup.enter="searchFn(keyWord)"
             />
           </div>
           <div class="submit" @click="searchFn(keyWord)"></div>
@@ -158,7 +157,7 @@
     <div class="hint-wrap" v-if="!hintexplain" @click="hideExplain">
       <div class="hint-header"></div>
       <div class="hint-con"></div>
-      <div class="hint-wrod">上榜企业按照环境绩效得分，从低到高排序。</div>
+      <div class="hint-wrod">榜单企业，按环境绩效得分，从低到高排序</div>
       <div class="hint-footer"></div>
     </div>
   </div>
@@ -197,8 +196,7 @@ export default {
   data() {
     return {
       company: false,
-      // hintexplain: localStorage.getItem('hintexplain'),
-      hintexplain: false,
+      hintexplain: localStorage.getItem('hintexplain'),
       allsort: [{
         letter:'',
         name:'全部',
@@ -291,7 +289,7 @@ export default {
         initData.nowData = initData.allData
       }else{
         initData.nowData = initData.allData.filter((item) => {
-          if ((item[0].search(word) != -1) || (item[1].search(word) != -1) || (item[4].search(word) != -1)) {
+          if (item[0] == word || item[1] == word || item[4] == word) {
             return item;
           }
         });
@@ -351,7 +349,7 @@ export default {
   methods: {
     hideExplain() {
       this.hintexplain = true;
-      // localStorage.setItem('hintexplain',true)
+      localStorage.setItem('hintexplain',true)
     },
     showCompany() {
       this.company = true;
@@ -359,7 +357,6 @@ export default {
     hideCompany() {
       this.company = false;
     },
-
     goUccn() {
       //去官网
       window.location.href =

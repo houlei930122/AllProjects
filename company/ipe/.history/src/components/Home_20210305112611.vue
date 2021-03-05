@@ -12,7 +12,6 @@
               @blur="changeBlur"
               v-model="keyWord"
               placeholder="行业、公司简称、股票代码 "
-              @keyup.enter="searchFn(keyWord)"
             />
           </div>
           <div class="submit" @click="searchFn(keyWord)"></div>

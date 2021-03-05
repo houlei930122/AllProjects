@@ -12,7 +12,6 @@
               @blur="changeBlur"
               v-model="keyWord"
               placeholder="行业、公司简称、股票代码 "
-              @keyup.enter="searchFn(keyWord)"
             />
           </div>
           <div class="submit" @click="searchFn(keyWord)"></div>
@@ -137,7 +136,7 @@
               </p>
               <p class="note-tit">注释:</p>
               <p class="note">
-                ①中国上市公司环境绩效榜单为实时动态榜单，评价对象为，自身或其关联企业为2020年度重点排污单位的上千家A股上市公司。评价的数据包括上市公司自身及其关联企业环境监管记录情况，相关环境信息披露情况。
+                ①中国上市公司环境绩效榜单为实时动态榜单，评价对象为，自身或其关联企业为2020年度重点排污单位的1868家A股上市公司。评价的数据包括上市公司自身及关联重点排污单位的环境监管记录，企业相关环境信息披露，以及评价之日起回溯两年内出现过处罚金额超过10万的其它非重排关联企业的上述两个维度信息。
               </p>
               <p class="note">
                 ②为增加榜单的科学性，除对所有上述上市公司进行大排名形成总榜单，还根据中国证监会发布的上市公司行业清单，对各行业分类评价，形成分榜单。其评价方法与总榜单一致，绩效分值基于纳入计算的企业动态环境信用分值及其持股比例加权平均而得。根据企业环境绩效从低到高进行排序。绩效分值相同时，排名顺序根据蔚蓝地图和合作机构开发的动态环境风险指数由高到低排列。
@@ -158,7 +157,7 @@
     <div class="hint-wrap" v-if="!hintexplain" @click="hideExplain">
       <div class="hint-header"></div>
       <div class="hint-con"></div>
-      <div class="hint-wrod">上榜企业按照环境绩效得分，从低到高排序。</div>
+      <div class="hint-wrod">榜单企业，按环境绩效得分，从低到高排序</div>
       <div class="hint-footer"></div>
     </div>
   </div>
@@ -197,16 +196,14 @@ export default {
   data() {
     return {
       company: false,
-      // hintexplain: localStorage.getItem('hintexplain'),
-      hintexplain: false,
+      hintexplain: localStorage.getItem('hintexplain'),
       allsort: [{
-        letter:'',
-        name:'全部',
-        list:[
-          '全部'
-        ]
-      }
-    ],
+		letter:'',
+		name:'全部',
+		list:[
+			'全部'
+		]
+	},],
       // hideall: false,//全部行业
       // sortIndex: 0,
       // allData:[],
@@ -287,16 +284,12 @@ export default {
       if (hideall.show) {
         hideall.show = false;
       }
-      if(word == '全部'){
-        initData.nowData = initData.allData
-      }else{
-        initData.nowData = initData.allData.filter((item) => {
-          if ((item[0].search(word) != -1) || (item[1].search(word) != -1) || (item[4].search(word) != -1)) {
-            return item;
-          }
-        });
-      }
-   
+
+      initData.nowData = initData.allData.filter((item) => {
+        if (item[0] == word || item[1] == word || item[4] == word) {
+          return item;
+        }
+      });
       // console.log(initData.nowData)
       if (initData.nowData.length === 0) {
         //没有搜索到
@@ -351,7 +344,7 @@ export default {
   methods: {
     hideExplain() {
       this.hintexplain = true;
-      // localStorage.setItem('hintexplain',true)
+      localStorage.setItem('hintexplain',true)
     },
     showCompany() {
       this.company = true;
@@ -359,11 +352,10 @@ export default {
     hideCompany() {
       this.company = false;
     },
-
     goUccn() {
       //去官网
       window.location.href =
-        "https://m.thepaper.cn/newsDetail_forward_103922";
+        "http://www.ipe.org.cn/GreenSecurities/Securities.html";
     },
     goDetails(name) {
       //详情
