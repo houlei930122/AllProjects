@@ -1,0 +1,48 @@
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.container .logo{
+    position: fixed;
+    left: 29rpx;
+    top: 20rpx;
+    z-index: 8;
+    width: 99rpx;
+}
+.container .content{
+    position: relative;
+    width: 100%;
+    height:1600rpx ;
+    background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/bg_ex.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;  
+    background-color:#2B7B5D; 
+    padding-top:160rpx; 
+}
+.content .tit{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size:32rpx;
+    font-family:PingFangSC-Medium;
+    font-weight:600;
+    color:rgba(255,255,255,1);
+    line-height:62rpx;
+}
+.content  .tit_msg{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:200;
+    color:rgba(255,255,255,1);
+    line-height:62rpx;
+}
+
+
+
+
+
+

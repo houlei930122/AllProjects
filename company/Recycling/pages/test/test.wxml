@@ -1,0 +1,5 @@
+<view class="page">
+  <camera device-position="back" flash="off" binderror="error" frame-size="large" class="mycamera">
+  </camera>
+  <canvas canvas-id="mycanvas" class="mycanvas"> </canvas>
+</view>

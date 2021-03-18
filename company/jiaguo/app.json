@@ -1,0 +1,34 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/upimg2/upimg2",
+    "pages/upimg1/upimg1",
+    "pages/site/site",
+    "pages/testcanvas/testcanvas",
+    "pages/chooseVideo/chooseVideo",
+    "pages/saveVideo/saveVideo", 
+    "pages/my/my",
+    "pages/sort/sort",
+    "pages/createVideo/createVideo",
+    "pages/chooseMusic/chooseMusic",
+    "pages/upimg/upimg",
+    "pages/share/share", 
+    "pages/landmark/landmark",     
+    "pages/hot/hot",
+       
+    "pages/code/code"
+      
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333333",
+    "navigationBarTitleText": "家国影像馆",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 20000
+  }
+
+}

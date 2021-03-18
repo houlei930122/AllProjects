@@ -1,0 +1,7 @@
+<view class="container">
+    <image class="img" src="../../images/flow_1.png" mode="widthFix" ></image>
+    <image class="img" src="../../images/flow_2.png" mode="widthFix" ></image>
+    <image class="img" src="../../images/flow_3.png" mode="widthFix" ></image>
+    <image class="img" src="../../images/flow_4.png" mode="widthFix" ></image>
+</view>
+

@@ -1,0 +1,109 @@
+page{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container{
+   position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #333;
+  background:linear-gradient(180deg,rgba(51,51,51,1) 0%,rgba(0,0,0,1) 100%);
+}
+.container .content{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height:1100rpx;
+  transform: translateY(-50%);
+  padding-bottom: 200rpx;
+}
+.swiper_wrap {
+  width: 100%;
+  height: 100%;
+}
+ .swiper_item{
+   overflow: hidden;
+ }
+.slide-image {
+  position: absolute;
+  width: 100%; 
+  left: 0;
+  bottom: 80rpx;  
+}
+.swiper_item .img_msg{
+  position: absolute;
+  left: 0;
+  bottom: 80rpx;  
+  width:100%;
+  height:115rpx;
+  line-height:115rpx;
+  background:rgba(0,0,0,0.5);
+  font-size:24rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  text-align: center;
+}
+.active {
+  transform: scale(1);
+  transition: all 0.2s ease-in 0s;
+} 
+.quiet {
+  transform: scale(0.9);
+  transition: all 0.2s ease-in 0s;
+}
+.active.active_no{
+  transition: none;
+}
+.quiet.active_no{
+  transition: none;
+}
+.container .next_btn{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -285rpx;
+  width:570rpx;
+  height:68rpx;
+  line-height:68rpx;
+  background:linear-gradient(240deg,rgba(235,172,42,1) 0%,rgba(255,225,101,1) 100%);
+  border-radius:37rpx;
+  font-size:28rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(51,51,51,1);
+  text-align: center;
+}
+.container .landmark_name{
+  position: absolute;
+  right: 40rpx;
+  bottom: 70rpx;
+  display: inline-block;
+  font-size:24rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  line-height:32rpx;
+  height:32rpx;
+  padding-left: 32rpx;
+}
+.landmark_name::after{
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 7rpx;
+   width:18rpx;
+   height:18rpx;
+    border:2rpx solid rgba(191,157,85,1);
+    border-radius:20rpx; 
+}
+.landmark_name::before{
+  content: '';
+  position: absolute;
+  left: 8rpx;
+  top: 14rpx;
+  width:6rpx;
+  height:6rpx;
+  background:linear-gradient(180deg,rgba(189,155,82,1) 0%,rgba(221,200,122,1) 100%);
+  border-radius:6rpx;
+}

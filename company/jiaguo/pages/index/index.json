@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText":"家国影像馆",
+  "navigationStyle":"custom" ,
+  "backgroundTextStyle": "dark" ,
+  "disableScroll": true,
+  "enablePullDownRefresh": false
+}

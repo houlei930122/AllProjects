@@ -1,0 +1,47 @@
+<import src="../we-cropper/we-cropper.wxml"/>
+<view class="container">
+  <view class="up_con">
+    <view class="up_center">
+      <view class="has_img" wx:if="{{hasImg}}">
+        <image class="up_img" src="{{upImgUrl}}" mode="widthFix"></image>
+        <image class="del_icon" bindtap="delimg" src="../../images/del_icon.png"></image>
+      </view>
+      <view class="no_up" wx:else bindtap="uploadTap">
+        <image class="up_bg" src="../../images/up_bg.png"></image>
+        <image class="up_icon" src="../../images/up_icon.png"></image>
+        <view class="hint_up_msg">上传以前的照片</view>
+      </view>
+    </view>
+    <view class="up_tit1">
+      老照片
+      <image src="../../images/choose_bg.png"></image>
+    </view>
+    <view class="up_tit1 no_c" bindtap="tabs">
+      新照片
+    </view>
+  </view>
+  
+  <view class="new_wrap" >
+      <view class="new_content">
+        <input class="newyear" type="number" value="{{newyear}}"  bindinput="newyear" placeholder="{{placeholder1}}" maxlength="4" placeholder-style="color:#434343;"/>
+        <view class="newtit" >年</view>
+        <textarea class="input_area" value="{{newarea}}" bindinput="newarea" placeholder="{{placeholder2}}" maxlength="30"  placeholder-style="color:#434343;"/>
+      </view>
+  </view>
+  <view class="words_num">
+    {{wordsNum}}
+  </view>
+    
+  <view class="next_wrap">
+    <view class="next_btn act" bindtap="nexttap" wx:if="{{upImgUrl && newyear && newarea }}">下一步</view>
+    <view class="next_btn " wx:else>下一步</view>
+  </view>
+  
+</view>
+ <view class="cropper-wrapper" wx:if="{{cropperShow}}">
+    <template is="we-cropper" data="{{...cropperOpt}}"/>
+    <cover-view class="cropper-buttons" style="color: {{cropperOpt.boundStyle.color}}">
+        <cover-image src="../../images/cancel.png" class="upload btn1"  bindtap="cancel"> </cover-image>
+        <cover-image src="../../images/cut_img.png" class="getCropperImage btn2"  bindtap="getCropperImage" ></cover-image>
+    </cover-view>
+</view>

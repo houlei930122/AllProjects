@@ -1,0 +1,20 @@
+<import src="../we-cropper/we-cropper.wxml"/>
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <view  class="upbtn"  bindtap="uploadTap"> 裁剪图片</view>
+     <view  class="upbtn"  bindtap="chooseImg"> 上传图片</view>
+     <view  class="upbtn"  bindtap="chooseVideo"> 上传视频</view>
+     <view  class="upbtn"  bindtap="back"> 热门</view>
+    <image class="" src="{{clipSrc}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+        
+    </image>
+
+    <view class="cropper-wrapper" wx:if="{{cropperShow}}">
+        <template is="we-cropper" data="{{...cropperOpt}}"/>
+        <view class="cropper-buttons" style="color: {{cropperOpt.boundStyle.color}}">
+            <view  class="upload btn1"  bindtap="cancel"> 取消</view>
+            <view class="getCropperImage btn2" style="background-color: {{cropperOpt.boundStyle.color}};" bindtap="getCropperImage">
+            生成图片
+            </view>
+        </view>
+    </view>
+</view>

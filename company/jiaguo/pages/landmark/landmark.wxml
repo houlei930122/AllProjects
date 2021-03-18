@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="content" >
+    <swiper class='swiper_wrap'  indicator-color="#474747" indicator-active-color="#ECECEC"  indicator-dots  previous-margin="90rpx" next-margin="90rpx" circular bindchange="bindchange" 
+    >
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item class="swiper_item">
+          <image src="{{item.thumbnailImg}}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}} {{firstIn ? 'active_no' : ''}}" mode='widthFix'>
+          </image>
+          <view class="img_msg {{swiperIndex == index ? 'active' : 'quiet'}}" >
+            {{item.description}} 
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="next_btn" bindtap="beginMake">
+      开始制作
+    </view>
+  </view>
+  <!-- <view class="landmark_name">{{landmark}}</view> -->
+</view>

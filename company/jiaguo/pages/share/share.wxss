@@ -1,0 +1,229 @@
+page{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #333;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.video_con{
+position: relative;
+width: 100%;
+height: 100%;
+overflow: hidden;
+background: #000;
+
+}
+.video_con .video_cen{
+position: relative;
+width: 100%;
+height: 100%;
+overflow: hidden;
+}
+.video_cen video{
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+}
+.video_cen .paly_btn{
+position: absolute;
+top: 50%;
+left: 50%;
+width: 126rpx;
+height: 126rpx;
+margin-left: -63rpx;
+margin-top: -63rpx;
+z-index: 888;
+}
+.list{
+position: relative;
+width: 100%;
+/* height: 100rpx;
+line-height: 100rpx; */
+text-align: center;
+}
+.video{
+position: relative;
+width: 100%;
+}
+.video .cover{
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+z-index: 222;
+}
+.cover .cover_img{
+position: relative;
+width: 100%;
+}
+
+.video_con .header_img{
+  position: absolute;
+  bottom: 570rpx;
+  right: 12rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 70rpx;
+  overflow: hidden;
+  z-index: 888;
+  padding: 4rpx;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/8/jiaguo/header_bg.png');
+  background-size:100% 100%; 
+}
+.video_con .header_img cover-image{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.video_con .like_wrap{
+  position: absolute;
+  bottom: 445rpx;
+  right: 30rpx;
+  width: 64rpx;
+  z-index: 888;
+}
+.like_wrap .like_icon{
+  position: relative;
+  width: 100%;
+}
+.like_wrap .like_num{
+  position: relative;
+  margin-top: 6rpx;
+  width: 100%;
+  text-align: center;
+  font-size:24rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  line-height:31rpx;
+  text-shadow:0px 2rpx 2rpx rgba(68,68,68,0.5);
+}
+.video_con .share_video{
+  position: absolute;
+  /* bottom: 300rpx; */
+  bottom: 360rpx;
+  right: 30rpx;
+  width: 64rpx;
+  height: 57rpx;
+  z-index: 888;
+}
+.video_con .share_video.share_1{
+  z-index: 88888;
+}
+.video_con #share{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8889;
+  width: 59rpx;
+  height: 57rpx;
+  opacity: 0;
+}
+.video_con .my{
+  position: absolute;
+  bottom: 230rpx;
+  right: 62rpx;
+  width: 60rpx;
+  height: 100rpx;
+  z-index: 888;
+}
+/* .share{
+    z-index: 888;
+    opacity: 0;
+} */
+/* 分享 */
+.share_wrap{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background:rgba(0,0,0,0.8);
+}
+.share_wrap .share_con{
+  position: absolute;
+  left: 0;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 150rpx;
+}
+.share_con .share{
+  position: absolute;
+  top: 0;
+  left: 100rpx;
+  width: 112rpx;
+  height: 136rpx;
+  border-radius: 0;
+  line-height: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0; 
+}
+.share_con .share::after{
+  content: '';
+  border: none;
+}
+.share_con .share .shareicon{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.savevideo{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 86rpx;
+  height: 136rpx;
+  
+  border-radius: 0;
+  line-height: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0; 
+  margin-left: -43rpx;
+}
+.savecard{
+  position: absolute;
+  top: 0;
+  right: 100rpx;
+  width: 112rpx;
+  height: 136rpx;
+  border-radius: 0;
+  line-height: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0; 
+}
+.share_wrap .close_share{
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  width: 72rpx;
+  height: 72rpx;
+  margin-left: -36rpx;
+}
+.close_share cover-image{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.create_icon{
+  position: fixed;
+  left: 50rpx;
+  bottom: 8%;
+  width: 650rpx;
+  height: 160rpx;
+  z-index: 9999;
+}

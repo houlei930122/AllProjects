@@ -1,0 +1,31 @@
+<view class="wrap">
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>
+    <form class="form_wrap" bindsubmit="formSubmit" bindreset="formReset">
+        <view class="input_wrap" >
+            <view class="section">
+                <!-- <view class="section__title">请输入搜索内容</view> -->
+                <input class="input" name="input" bindconfirm="submit" placeholder="请输入搜索内容" bindinput="nameinput"  value="{{inputvalue}}" />
+                <view class="result_wrap" animation="{{animationData}}" hidden="{{!resultse}}">
+                    <scroll-view class="result_con" scroll-x="false" scroll-y="true"  scroll-top="{{gotop}}">
+                        <view class="result_item" wx:for="{{searchcon}}" bindtap="selectRes" data-msg="{{item.name}}{{item.msg}}"  wx:key="res">
+                            {{item.name}}.:{{item.msg}}  
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+            
+                
+            
+            <view class="btn-area">
+                <button type="primary" class="sub_btn" bindtap="submit">查询</button>
+            </view>
+        </view>
+       
+    </form>
+  
+
+ 
+
+</view>

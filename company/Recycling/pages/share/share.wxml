@@ -1,0 +1,28 @@
+<view class="container">
+    <image class="img" src="{{imgurl}}" mode="widthFix"></image>
+    <view class="conetnt">
+        <view class="tit" >这是那种垃圾？</view>
+         <view class="options_wrap">
+            <view class="option" hover-class="choose" bindtap="selectfun" data-sort="1">可回收物 </view>
+            <view class="option" hover-class="choose" bindtap="selectfun" data-sort="2">干垃圾 </view>
+            <view class="option" hover-class="choose" bindtap="selectfun" data-sort="3">湿垃圾 </view>
+            <view class="option" hover-class="choose" bindtap="selectfun" data-sort="4">有害垃圾 </view>
+         </view>   
+       
+        <navigator class="gohome" target="" url="../index/index" hover-class="navigator-hover" open-type="navigate">
+            去识别垃圾 >>
+        </navigator>
+    </view>
+
+    <view class="error_wrap" wx:if="{{err}}">
+        <view class="icon"></view>分类错误
+    </view>
+
+    <view class="suc_wrap" wx:if="{{suc}}">
+        <view class="suc_con">
+            <image class="sucimg" src="../../images/suc.png" mode="widthFix"></image>
+            <navigator class="go"  url="../index/index" open-type="navigate"></navigator>
+        </view>
+    </view>
+
+</view>

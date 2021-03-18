@@ -1,0 +1,183 @@
+<view class="container" hover-class="none" hover-stop-propagation="false">
+   <camera device-position="back" flash="{{ flash  ? 'on' : 'off'}}"  hidden="{{!camera}}"   binderror="error" style="width: 100%; height: 100%;">
+        
+        <cover-view class="photo" bindtap="photo">
+            <cover-image class="camera_icon" src="../../images/camera_icon.png" ></cover-image>   
+            <cover-view class="icon_txt">
+                相册
+            </cover-view>
+        </cover-view>
+        <cover-view class="photograph" bindtap="takePhoto">
+            <cover-image class="photograph_icon" src="../../images/take.png" ></cover-image>   
+        </cover-view>
+        <cover-view class="flash" bindtap="flashfn">
+            <block wx:if="{{flash}}">
+                 <cover-image class="flash_icon" src="../../images/flash_on.png" ></cover-image>
+            </block>
+            <block wx:else>
+                 <cover-image class="flash_icon" src="../../images/flash_off.png" ></cover-image>
+            </block>
+            <cover-view class="icon_txt">
+                闪光灯
+            </cover-view>
+        </cover-view>
+          
+   </camera>
+    <!-- <button open-type="openSetting" bindopensetting="callback" wx:if="{{getauth}}">打开设置页</button> -->
+    <view class="photoimg_wrap" wx:if="{{istake}}">
+        <image class="photoimg" src="{{src}}" mode="widthFix" ></image>
+        <view class="shade"></view>
+        <view class="discern">
+            正在识别…
+        </view>
+        <image class="cancel" bindtap="close" src="../../images/cancel.png" mode="widthFix" ></image>
+    </view>
+    
+    <!-- 识别结果 -->
+    <view class="result_wrap" wx:if="{{resshow}}" animation="{{animationData}}">
+        <image class="garbageLibrary" bindtap="gogar" src="../../images/garbageLibrary.png" mode="widthFix" > </image>
+        <image class="thumb" src="../../images/bg.png" mode="" > </image>
+        <view class="result_con" >
+            <view class="close_btn" bindtap="close">
+                <image src="../../images/close.png"></image>
+            </view>
+            <view class="gohome" bindtap="gohome">
+                <image src="../../images/home.png"></image>
+                <view class="home_txt" >回首页</view>   
+            </view>  
+            <!-- 结果 -->
+            <view class="res_t" wx:if="{{res}}">
+                <view class="res_tit">小湃（垃圾分类小助手）识别出该垃圾是</view>
+                <view class="res_name">{{imgUrls[status].tit}}</view>
+                <view class="res_sort">「{{imgUrls[status].sort}}」</view> 
+                <view class="swiper_wrap" >
+                    <image class="prv" bindtap="prv" src="../../images/left.png" mode="widthFix"></image>
+                    <image class="next" bindtap="next" src="../../images/right.png" mode="widthFix"></image>
+                        
+                    
+                    <swiper  class="result_s" bindchange="slip" current="{{status}}">
+                        <block wx:for="{{imgUrls}}" wx:key="img">
+                            <swiper-item>
+                                <image class="" src="../../images/{{item.name}}" mode="widthFix" lazy-load="false"></image>
+                            </swiper-item>
+                        </block>
+                    </swiper>
+                 </view>   
+                <!-- 底部跳转按钮 -->
+                <view class="footer" >
+                    <view class="photos" bindtap="photo">
+                        <image class="icon" src="../../images/s_pic.png" mode="widthFix"></image>
+                         <view class="txt" >
+                             相册
+                         </view>    
+                    </view>
+                    <view class="shitu" bindtap="close">
+                        <image class="icon" src="../../images/s_cam.png" mode="widthFix"></image>
+                         <view class="txt" >
+                             继续识图
+                         </view>    
+                    </view>
+                    <view class="search" bindtap="search">
+                        <image class="icon" src="../../images/s_s.png" mode="widthFix"></image>
+                         <view class="txt" >
+                             搜索
+                         </view>    
+                    </view>
+                </view>
+                  
+
+            </view>
+            <view class="res_false" wx:else>
+                <view class="tit" hover-class="none" hover-stop-propagation="false">
+                    小湃（垃圾分类小助手）未识别出该垃圾
+                    <view >
+                        以下内容供您参考
+                    </view> 
+                </view>
+                <view class="else_hint">
+                    <view class="list" >
+                        <view class="item" >
+                            <image class="icon" src="../../images/kehui_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                            <view class="item_msg" style="color:rgba(16,72,131,1);">
+                                <view class="item_tit" >
+                                    可回收物是指：
+                                </view>
+                                <view class="item_details" >
+                                    废纸张/废塑料/废玻璃制品/废金属/废织物等 适宜回收、可循环利用的生活废弃物；
+                                </view>
+                            </view> 
+                        </view>
+                        <view class="item" >
+                            <image class="icon" src="../../images/youhai_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                            <view class="item_msg" style="color:#E45440;">
+                                <view class="item_tit" >
+                                    有害垃圾是指：
+                                </view>
+                                <view class="item_details" >
+                                废电池/废灯管/废药品/废油漆等对人体健康或环境造成直接或潜在危害的生活废弃物
+                                </view>
+                            </view> 
+                        </view>
+                        <view class="item" >
+                            <image class="icon" src="../../images/shi_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                            <view class="item_msg" style="color:#74524E;">
+                                <view class="item_tit" >
+                                湿垃圾是指：
+                                </view>
+                                <view class="item_details" >
+                                即易腐垃圾，指食材废料/剩菜剩饭/过期食品 瓜皮果核/花卉绿植/中药渣等生活废弃物；
+                                </view>
+                            </view> 
+                        </view>
+                        <view class="item" >
+                            <image class="icon" src="../../images/gan_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                            <view class="item_msg" style="color:#2E2C2A;">
+                                <view class="item_tit" >
+                                干垃圾是指：
+                                </view>
+                                <view class="item_details" >
+                                即其它垃圾，是指除上述三种垃圾类别以外的其它生活废弃
+                                </view>
+                            </view> 
+                        </view>
+                    </view>
+                </view>
+                <view class="hint_s" >
+                    或点击<view>「搜索」</view>按照文字识别吧
+                </view>
+                <!-- 底部跳转按钮 -->
+                <view class="footer" >
+                    <view class="photos" bindtap="photo">
+                        <image class="icon" src="../../images/s_pic.png" mode="widthFix"></image>
+                         <view class="txt" >
+                             相册
+                         </view>    
+                    </view>
+                    <view class="shitu" bindtap="close">
+                        <image class="icon" src="../../images/s_cam.png" mode="widthFix"></image>
+                         <view class="txt" >
+                             继续识图
+                         </view>    
+                    </view>
+                    <view class="search" bindtap="search">
+                        <image class="icon" src="../../images/se_act.png" mode="widthFix"></image>
+                         <view class="txt acttext" >
+                             搜索
+                         </view>    
+                    </view>
+                </view>
+
+
+
+            </view>
+                    
+            
+                
+
+        </view>
+    </view>
+
+      
+
+</view>
+

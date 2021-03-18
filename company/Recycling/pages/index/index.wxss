@@ -1,0 +1,287 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container .logo{
+  position: absolute;
+  left: 275rpx;
+  top: 70rpx;
+  z-index: 8;
+  width: 200rpx;
+}
+.container .garbageLibrary{
+  position: absolute;
+  right: 0;
+  top: 30rpx;
+  z-index: 8;
+  width:194rpx;
+}
+
+.container .tit{
+  position: absolute;
+  left: 50%;
+  top: 245rpx;
+  z-index: 8;
+  width:520rpx;
+  margin-left: -260rpx;
+}
+.container .introduce_wrap{
+  position: absolute;
+  top: 140rpx;
+  right: 28rpx;
+  z-index: 58;
+  width: 76rpx;
+  height: 332rpx;
+  
+}
+.introduce_wrap .psp{
+  position: absolute;
+  top:0;
+  right: 0;
+  z-index: 58;
+  width: 76rpx;
+  height: 86rpx;
+  background-position: 0 0;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/introduce_btn.png');
+  background-size:76rpx 332rpx; 
+  background-repeat: no-repeat;
+}
+.introduce_wrap .flowpath{
+  position: absolute;
+  top: 124rpx;
+  right: 0;
+  z-index: 58;
+  width: 76rpx;
+  height: 86rpx;
+  background-position: 0 -124rpx;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/introduce_btn.png');
+  background-size:76rpx 332rpx; 
+  background-repeat: no-repeat;
+}
+.introduce_wrap .explain{
+  position: absolute;
+  top: 248rpx;
+  right: 0;
+  z-index: 58;
+  width: 76rpx;
+  height: 86rpx;
+  background-position: 0 -248rpx;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/introduce_btn.png');
+  background-size:76rpx 332rpx; 
+  background-repeat: no-repeat;
+}
+.container .go_wrap{
+  position: absolute;
+  width: 450rpx;
+  left: 50%;
+  bottom: 200rpx;
+  margin-left: -225rpx;
+  z-index: 58;
+}
+.go_wrap .photograph{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  /* bottom: 130rpx; */
+  width: 450rpx;
+  height: 110rpx;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/scan_btn.png');
+  background-size:100% 100%; 
+  background-repeat: no-repeat;
+}
+.photograph button{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 58;
+  opacity: 0;
+}
+.go_wrap .search_btn{
+  position: absolute;
+  left: 0;
+  bottom: 60rpx;
+  /* bottom: 0; */
+  width: 450rpx;
+  height: 110rpx;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/go_seacrh.png');
+  background-size:100% 100%; 
+  background-repeat: no-repeat;
+}
+
+.hintWrap{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 585858;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+.hintWrap .hintcon{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left:-250rpx;
+  margin-top:-142rpx;  
+  width:500rpx;
+  height:284rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 1rpx 4rpx 4rpx rgba(0,0,0,0.08);
+  border-radius:20rpx;
+  padding-top: 40rpx;
+}
+.hintcon .hint_tit{
+  position: relative;
+  display:inline-block;
+  width: 100%;
+  font-size:34rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(83,71,8,1);
+  line-height:50rpx;
+  text-align: center;
+}
+.hintcon .hint_close{
+  width: 360rpx;
+  margin-left: 70rpx ;
+  margin-top: 50rpx;
+}
+
+.hintcollect{
+  position: fixed;
+  top: 0;
+  right: 16rpx;
+  overflow: hidden;
+  z-index: 588;
+}
+.hintcollect .collect{
+  width: 279rpx;
+}
+.hintcollect .colse_collect{
+  position: absolute;
+  top: 0;
+  right: -10rpx;
+  width: 60rpx;
+  height: 60rpx;
+  z-index: 58;
+}
+.share_wrap{
+  position: absolute;
+  right: 30rpx;
+  bottom: 272rpx;
+  width: 76rpx;
+  height: 198rpx;
+  z-index: 58;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/codeshare.png');
+  background-size: 76rpx  198rpx; 
+  background-repeat: no-repeat;
+}
+.share_wrap .code{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 76rpx;
+  height: 86rpx;
+  z-index: 68;
+ 
+}
+.share_wrap .sahre{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 76rpx;
+  height: 86rpx;
+  z-index: 68;
+  opacity: 0;
+}
+
+
+
+.savewrap{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 585858;
+}
+.savewrap .save_con{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  width: 440rpx;
+  height: 534rpx;
+  margin-left: -220rpx;
+  margin-top: -267rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 1px 4px 4px rgba(0,0,0,0.08);
+  border-radius:20px;
+  padding-top: 70rpx ;
+  box-sizing: border-box;
+}
+.save_con .cancel{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+
+}
+.save_con .cancel::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -20rpx;
+  margin-top: -2rpx;
+  width: 40rpx;
+  height: 4rpx;
+  background-color: #534708;
+  transform-origin:center center;
+  transform: rotateZ(45deg) 
+}
+.save_con .cancel::before{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -20rpx;
+  margin-top: -2rpx;
+  width: 40rpx;
+  height: 4rpx;
+  background-color: #534708;
+  transform-origin:center center;
+  transform: rotateZ(-45deg) 
+}
+.save_con .codeimg{
+  width: 300rpx;
+  margin-left: 70rpx;
+}
+.save_con .savebtn_wrap{
+  position: relative;
+  width: 320rpx;
+  height: 94rpx;
+  margin-left: 60rpx;
+  margin-top: 35rpx;
+}
+.savebtn_wrap image{
+  width: 100%;
+}
+
+
+.shouquan{
+  position: fixed;
+  left: 10%;
+  bottom:100rpx;
+  width: 80%;
+  height: 80rpx;
+  z-index: 99999999;
+}

@@ -200,7 +200,7 @@ export default {
         ]
       },    
     ],
-    timer:null,
+    timer:null
       // hideall: false,//全部行业
       // sortIndex: 0,
       // allData:[],
@@ -349,7 +349,6 @@ export default {
   methods: {
     hideExplain() {
       this.hintexplain = true;
-      clearTimeout(this.timer)
       // localStorage.setItem('hintexplain',true)
     },
     showCompany() {

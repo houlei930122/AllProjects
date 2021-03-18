@@ -1,0 +1,54 @@
+
+<view class="container">
+
+  <image class="bg" style="width:100%;height:100%" src="../../images/bg.png" mode="scaleToFill" lazy-load="false"></image>
+  <image class="logo" src="../../images/logo.png" mode="widthFix" > </image>
+  <!-- <image class="garbageLibrary" bindtap="gogar" src="../../images/garbageLibrary.png" mode="widthFix" > </image> -->
+  
+  <image class="tit" src="../../images/tit.png" mode="widthFix" > </image>
+ 
+  <view class="introduce_wrap" hover-class="none" hover-stop-propagation="false">
+    <navigator class="psp" url="../psp/psp"></navigator>
+    <navigator class="flowpath" url="../flowpath/flowpath"></navigator>
+    <navigator class="explain" url="../explain/explain"> </navigator>
+  </view>
+  <view class="go_wrap" hover-class="none" hover-stop-propagation="false">
+    <navigator class="search_btn"  url="../search/search"></navigator>
+  </view>
+  <view class="share_wrap" >
+      <view class="code" bindtap="showcode"></view>
+      <button class="sahre" id="share" open-type="share"></button>
+  </view>
+
+  <!-- hint -->
+  <view class="hintWrap" wx:if="{{hint}}">
+      <view class="hintcon" >
+          <text class="hint_tit" > AR识别功能即将上线\n敬请期待~ </text>
+          <image class="hint_close" bindtap="closehint" src="../../images/hint_close.png" mode="widthFix" ></image>
+      </view>
+  </view>
+  <view class="hintcollect" wx:if="{{collect}}">
+      <image class="collect" src="../../images/collect.png" mode="widthFix"></image>
+      <view class="colse_collect" bindtap="collect_c"> </view>
+  </view>
+  
+  <!-- saveimg -->
+  <view class="savewrap" wx:if="{{savecode}}">
+      <view class="save_con">
+        <view class="cancel" bindtap="cancel"></view>
+        <image class="codeimg" src="../../images/code.jpg" mode="widthFix" lazy-load="false"></image>
+          
+        <view class="savebtn_wrap" bindtap="saveimg">
+          <image src="../../images/saveimg.png" mode="widthFix" lazy-load="false"></image>
+        </view>
+      </view>
+  </view>
+
+  <button class="shouquan"  bindtap="openSetting" wx:if="{{author}}">请点击授权保存</button>
+    
+    
+    
+ 
+
+
+</view>

@@ -1,0 +1,245 @@
+page{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #333;
+}
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/8/jiaguo/music_bg.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.container .shade{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 144rpx;
+  background:linear-gradient(rgba(51,51,51,1) 0%,transparent 100%);
+}
+.container .music_header{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 33;
+}
+.music_header .music_con{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 42rpx;
+}
+.music_showwrap{
+  position: relative;
+  width: 100%;
+  height: 780rpx;
+  padding-top: 74rpx;
+}
+.music_showwrap .create_btn{
+  position: absolute;
+  top: 0;
+  right: 40rpx;
+  width:178rpx;
+  height:68rpx;
+  background:linear-gradient(240deg,rgba(236,172,42,1) 0%,rgba(255,226,102,1) 100%);
+  border-radius:37rpx;
+  text-align: center;
+  line-height: 68rpx;
+  font-size:28rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(51,51,51,1);
+}
+.music_showwrap .music_name{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  height:40rpx;
+  font-size:30rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}
+.music_showwrap .gramophone_wrap{
+  position: relative;
+  margin: 55rpx auto 0;
+  width: 496rpx;
+  height: 518rpx;
+  background-image: url('https://adproject.thepaper.cn/adproject/2019/8/jiaguo/shade.png') ;
+  background-size:100% 100%; 
+}
+.gramophone_wrap .music_s1{
+  position: absolute;
+  right: 48rpx;
+  top: 36rpx;
+  width: 146rpx;
+  z-index: 10;
+}
+.gramophone_wrap .music_s2{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 230rpx;
+  z-index: 8;
+}
+.gramophone_wrap .music_s3{
+  position: absolute;
+  left: 5rpx;
+  bottom: -10rpx;
+  width: 480rpx;
+  z-index: 9;
+}
+.music_act{
+  animation: rot 12s infinite linear;
+}
+@keyframes rot{
+  0%{
+    transform: rotateZ(0);
+  }
+  100%{
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rot{
+  0%{
+    transform: rotateZ(0);
+  }
+  100%{
+    transform: rotateZ(360deg);
+  }
+}
+
+.music_showwrap .progress_wrap{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50rpx;
+  padding: 0 30rpx 0 40rpx;
+}
+.progress_wrap .progress_con{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+}
+.progress_con .music_onoff{
+  position: relative;
+  width: 50rpx;
+  margin-right: 10rpx;
+}
+.music_onoff image{
+  width: 100%;
+}
+.progress_cen{
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+.progress_cen .progress_no{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height:2rpx;
+  background: #fff;
+  margin-top: -1rpx;
+}
+.progress_cen .progress_yes{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height:2rpx;
+  background: #E3D081;
+  margin-top: -1rpx;
+  z-index: 87;
+  overflow: visible;
+}
+.progress_cen .progress_yes::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3rpx;
+  width:8rpx;
+  height:8rpx;
+  background:rgba(255,255,255,1);
+  border-radius: 8rpx;
+}
+
+.music_times{
+  position: relative;
+  height: 100%;
+  line-height: 50rpx;
+  font-size:24rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  margin-left: 15rpx;
+}
+
+
+
+.music_header .music_f{
+  position: absolute;
+  z-index: 222;
+  width: 100%;
+  left: 0;
+  top: 962rpx;
+}
+.container .music_footer{
+  position: absolute;
+  top: 984rpx;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background:rgba(0,0,0,0.272);
+  z-index: 68;
+}
+.music_footer .music_list{
+  position: relative;
+  /* height: 100%; */
+  width: 100%;
+  margin: 47rpx 0 0 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+}
+.music_con1{
+  position: relative;
+  overflow: hidden;
+  padding-left: 50rpx;
+  box-sizing: content-box;
+}
+.music_list .music_item{
+  position: relative;
+  float: left;
+  width: 246rpx;
+  height: 128rpx;
+  margin-right: 40rpx;
+  font-size:28rpx;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  text-align: center;
+  line-height: 128rpx;
+  border-radius:9rpx;
+  border:1rpx solid rgba(151,151,151,1)  ;
+  overflow: hidden;
+}
+.music_item.act{
+  border:2rpx solid #F9D052;
+  /* border-image:linear-gradient(180deg, rgba(227,208,129,1), rgba(188,153,81,1)) 2 2; */
+  border-radius:9rpx;
+  color: #F9D052;
+}
+
+
+
+
+
+
+
+
+
+

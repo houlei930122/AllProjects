@@ -1,0 +1,52 @@
+page{
+    background: rgba(51,51,51,1);
+    background:linear-gradient(180deg,rgba(51,51,51,1) 0%,rgba(0,0,0,1) 100%);
+}
+.city-scroll{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.container{
+    position: relative;
+    width: 100%;
+    padding: 40rpx 0 0 40rpx;
+    /* background: rgba(51,51,51,1);
+    background:linear-gradient(180deg,rgba(51,51,51,1) 0%,rgba(0,0,0,1) 100%); */
+}
+
+.hot_tit{
+    position: relative;
+    width: 100%;
+    font-size:28rpx;
+    font-family:MicrosoftYaHei;
+    color:rgba(105,105,105,1);
+    line-height:37rpx;
+}
+.list_wrap{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 40rpx;
+}
+.list_wrap .item{
+    position: relative;
+    float: left;
+    width:210rpx;
+    height:70rpx;
+    border:1rpx solid rgba(59,59,59,1);
+    text-align: center;
+    line-height: 70rpx;
+    font-size:24rpx;
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+    margin: 0 20rpx 20rpx 0;
+}
+.item.act{
+    border:1px solid;
+    border-image:linear-gradient(90deg, rgba(218,197,119,1), rgba(190,157,84,1)) 1 1;
+}
+
+

@@ -1,0 +1,6 @@
+<view class="container">
+    <image class="img" src="../../images/psp1.png" mode="widthFix" ></image>
+    <image class="img" src="../../images/psp2.png" mode="widthFix" ></image>
+    <image class="img" src="../../images/psp3.png" mode="widthFix" ></image>
+    <image class="img" src="../../images/psp4.png" mode="widthFix" ></image>
+</view>

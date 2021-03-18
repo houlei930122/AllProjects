@@ -1,0 +1,199 @@
+<view class="container" >
+    <!-- 搜索部分 -->
+    <view class="top_con" >  
+        <view class="search_wrap">
+           
+           <view class="input_wrap">
+               <input type="text" bindconfirm="searchfun" confirm-type="查询"  bindinput="inputval" value="{{inputvalue}}" placeholder="请输入垃圾的正确名称" placeholder-style="color:rgba(255,255,255,0.5);" auto-focus/>
+           </view>
+            <view class="search_btn" bindtap="searchfun">
+                查询
+            </view> 
+            <!-- 模糊搜索部分 -->
+            <view class="result_wrap" animation="{{animationData}}" hidden="{{!resultse}}">
+                <scroll-view class="result_con" scroll-x="false" scroll-y="true"  scroll-top="{{gotop}}">
+                    <view class="result_item"  hover-class="act" wx:for="{{searchcon}}" bindtap="selectRes" data-msg="{{item.name}}"  wx:key="res">
+                        {{item.name}}
+                    </view>
+                </scroll-view>
+            </view>
+             
+        </view>
+    </view>
+    <!-- 展示区 -->
+    <view class="show_container">
+        <!-- 0 默认 1可回收,2干,3湿,4有害，-1无  -->
+        <view class="default" wx:if="{{showstatus == 0}}">
+            <view class="sort_wrap">
+               <view class="kehuishou" hover-class="none" hover-stop-propagation="false"></view> 
+               <view class="gan" hover-class="none" hover-stop-propagation="false"></view> 
+               <view class="shi" hover-class="none" hover-stop-propagation="false"></view> 
+               <view class="youhai" hover-class="none" hover-stop-propagation="false"></view> 
+            </view>
+            <view class="liu_wrap" >
+                <navigator class="liuc" url="../flowpath/flowpath" open-type="navigate"> </navigator>
+                <navigator class="gonglv" url="../psp/psp" open-type="navigate"> </navigator>
+                <navigator class="shuoming" url="../explain/explain" open-type="navigate"> </navigator>   
+            </view>
+            <view class="remark" >
+                * 本查询系统仅供参考<view >具体分类要求以所属地专业管理部门为准</view>
+            </view>
+        </view>
+        <view class="show_wrap" wx:elif="{{showstatus == 3}}">
+            <image class="sort_img" src="../../images/huishou.png" mode="widthFix" ></image>
+        </view>
+        <view class="show_wrap" wx:elif="{{showstatus == 1}}"> 
+             <image class="sort_img" src="../../images/gan.png" mode="widthFix"></image>
+        </view>
+        <view class="show_wrap" wx:elif="{{showstatus == 2}}"> 
+            <image class="sort_img" src="../../images/shi.png" mode="widthFix"></image>
+        </view>
+        <view class="show_wrap" wx:elif="{{showstatus == 4}}"> 
+            <image class="sort_img" src="../../images/youhai.png" mode="widthFix"></image>
+        </view>
+        <view class="nofound" wx:else>
+            <block wx:if="{{showstatus == 5}}">
+                <view class="nofound_tit" >
+                    该垃圾属于<view class="light">大件垃圾</view>
+                <text class="">
+                    请<text class="light_b">询问物业</text>如何投放
+                </text> 
+                  以下生活垃圾供您参考
+                </view>
+            </block>
+            <block wx:elif="{{showstatus == 6}}">
+                <view class="nofound_tit" >
+                    该垃圾属于<view class="light">装修垃圾</view>
+                <text class="">
+                    请<text class="light_b">询问物业</text>如何投放
+                </text> 
+                  以下生活垃圾供您参考
+                </view>
+            </block>
+             <block wx:elif="{{showstatus == 7}}">
+                <view class="nofound_tit" >
+                    您查找的垃圾<view class="light_s">不属于日常生活垃圾</view>
+                <text class="">
+                    请<text class="light_b">询问垃圾站人员</text>如何处理 
+                </text> 
+                  以下生活垃圾供您参考
+                </view>
+            </block>
+             <block wx:else>
+                <view class="nofound_tit" >
+                    小湃（垃圾分类小助手）未能查到该垃圾
+                <text class="" selectable="false" space="false" decode="false">
+                    后续我们将继续优化完善
+                </text> 
+                    以下内容供您参考
+                </view>
+            </block>
+            <view class="else_hint">
+                <view class="list" >
+                    <view class="item" >
+                        <image class="icon" src="../../images/kehui_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                        <view class="item_msg" style="color:rgba(16,72,131,1);">
+                            <view class="item_tit" >
+                                可回收物是指：
+                            </view>
+                            <view class="item_details" >
+                                废纸张/废塑料/废玻璃制品/废金属/废织物等 适宜回收、可循环利用的生活废弃物；
+                            </view>
+                        </view> 
+                    </view>
+                    <view class="item" >
+                        <image class="icon" src="../../images/youhai_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                        <view class="item_msg" style="color:#E45440;">
+                            <view class="item_tit" >
+                                有害垃圾是指：
+                            </view>
+                            <view class="item_details" >
+                               废电池/废灯管/废药品/废油漆等对人体健康或环境造成直接或潜在危害的生活废弃物
+                            </view>
+                        </view> 
+                    </view>
+                    <view class="item" >
+                        <image class="icon" src="../../images/shi_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                        <view class="item_msg" style="color:#74524E;">
+                            <view class="item_tit" >
+                               湿垃圾是指：
+                            </view>
+                            <view class="item_details" >
+                               即易腐垃圾，指食材废料/剩菜剩饭/过期食品 瓜皮果核/花卉绿植/中药渣等生活废弃物；
+                            </view>
+                        </view> 
+                    </view>
+                    <view class="item" >
+                        <image class="icon" src="../../images/gan_s.jpg" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+                        <view class="item_msg" style="color:#2E2C2A;">
+                            <view class="item_tit" >
+                               干垃圾是指：
+                            </view>
+                            <view class="item_details" >
+                               即其它垃圾，是指除上述三种垃圾类别以外的其它生活废弃
+                            </view>
+                        </view> 
+                    </view>
+                </view>
+            </view>
+        </view>
+
+
+
+    </view>
+
+
+      <!-- hint -->
+    <view class="hintWrap" wx:if="{{hint}}">
+        <view class="hintcon" >
+            <text class="hint_tit" > AR识别功能即将上线\n敬请期待~ </text>
+            <image class="hint_close" bindtap="closehint" src="../../images/hint_close.png" mode="widthFix" ></image>
+        </view>
+    </view>
+
+    <view class="hintcollect" wx:if="{{collect}}">
+      <image class="collect" src="../../images/collect.png" mode="widthFix"></image>
+      <view class="colse_collect" bindtap="collect_c"> </view>
+    </view>
+    <!-- saveimg -->
+    <view class="savewrap" wx:if="{{savecode}}">
+        <view class="save_con">
+            <view class="cancel" bindtap="cancel"></view>
+            <image class="codeimg" src="../../images/code.jpg" mode="widthFix" lazy-load="false"></image>
+            
+            <view class="savebtn_wrap" bindtap="saveimg">
+            <image src="../../images/saveimg.png" mode="widthFix" lazy-load="false"></image>
+            </view>
+        </view>
+    </view>
+
+    <button class="shouquan"  bindtap="openSetting" wx:if="{{author}}">请点击授权保存</button>
+    <view class="share_wrap" >
+        <view class="code" bindtap="showcode"></view>
+        <button class="sahre" id="share" open-type="share"></button>
+    </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

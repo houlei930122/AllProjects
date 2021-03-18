@@ -1,0 +1,15 @@
+.container{
+    position: relative;
+    width: 100%;
+    background-image: url('https://adproject.thepaper.cn/adproject/2019/6/recycling/flow_bg.png');
+    background-size:100% 1206rpx;
+    background-repeat:no-repeat;
+    background-color: #2B7B5D;  
+    padding: 40rpx 10rpx 0 10rpx;
+    box-sizing: border-box;
+}
+.container .img{
+    position: relative;
+    width: 730rpx;
+    margin-bottom: 40rpx;
+}

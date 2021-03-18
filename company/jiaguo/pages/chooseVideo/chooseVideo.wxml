@@ -1,0 +1,31 @@
+<view class="container" >
+    <view class="content">
+        <view class="video_wrap">
+            <view class="video_no" bindtap="chooseVideo" wx:if="{{!videoSrc}}">
+                <image class="up_bg" src="../../images/up_bg.png"  mode="widthFix"/>
+                <image class="up_icon" src="../../images/go_up.png" mode="widthFix"  />
+                 <view class="up_tit" >上传视频</view> 
+                 <view class="up_tit1" >建议视频长度3秒</view> 
+            </view>
+            <view class="video_yes" wx:else>
+                <video class="video" src="{{videoSrc}}" object-fit="cover"></video>
+                <cover-image class="del" bindtap="delvideo" src="../../images/del_icon.png" ></cover-image>   
+            </view>
+        </view>
+        <view class="next"  wx:if="{{!videoSrc}}">
+            下一步
+        </view>
+        <view class="next1" bindtap="nextCreate" wx:else>
+            下一步
+        </view>
+    </view>
+    <view class="hint_wrap" wx:if="{{yindao}}">
+      <view class="hint_con">
+          <video class="hintvideo" autoplay="{{true}}"
+          src="https://adproject.thepaper.cn/adproject/2019/8/jiaguo/yindao.mp4" ></video>
+          <view class="hint_tit">跟我拍</view>
+          <view class="hint_msg">对着镜头说“祖国，生日快乐”</view>
+          <image class="hint_close" bindtap="closehint"  src="../../images/del_icon.png"></image>
+      </view>
+    </view>
+</view>

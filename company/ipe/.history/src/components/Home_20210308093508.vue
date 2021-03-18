@@ -198,9 +198,8 @@ export default {
         list:[
           '全部'
         ]
-      },    
+      }
     ],
-    timer:null,
       // hideall: false,//全部行业
       // sortIndex: 0,
       // allData:[],
@@ -342,14 +341,13 @@ export default {
     };
   },
   mounted () {
-    this.timer = setTimeout(() => {
+    setTimeout(() => {
       this.hintexplain = true;
     }, 2000);
   },
   methods: {
     hideExplain() {
       this.hintexplain = true;
-      clearTimeout(this.timer)
       // localStorage.setItem('hintexplain',true)
     },
     showCompany() {

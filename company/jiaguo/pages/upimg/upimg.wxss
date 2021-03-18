@@ -1,0 +1,48 @@
+
+.cropper{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cropper-buttons{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    height: 50px;
+    width: 100%;
+    z-index: 99;
+}
+.cropper-buttons .btn1{
+    position: absolute;
+    left: 40px;
+    bottom: 10px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 24rpx;
+    border-radius: 2px;
+    color: #ffffff;
+    background: blue;
+}
+.cropper-buttons .btn2{
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 24rpx;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.upbtn{
+    width: 200rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background: blue;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+

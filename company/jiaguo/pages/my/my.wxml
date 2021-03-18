@@ -1,0 +1,41 @@
+<view class="container" >
+    <view class="header_con" >
+        <view class="header_wrap" >
+            <image class="header_img" src="{{userImg}}"  />
+        </view>
+        <view class="my_name" >{{userName}}</view> 
+        <view class="sumdata_wrap" >
+            <block wx:if="{{allCount}}">
+                <view class="zan_num" >
+                    {{allCount}}
+                </view>
+                <view class="num_tit">
+                    获赞
+                </view>
+            </block>
+            <!-- <view class="share_num" >
+                10w
+            </view>
+            <view class="num_tit">
+                转发
+            </view> -->
+        </view> 
+    </view>
+      
+  
+   <view class="video_list" >
+        <view class="video_item" wx:for="{{videoList}}" wx:key="v" data-videoid="{{item.id}}" bindtap="videoDetails" >
+           <image class="video_cover" src="{{item.imgUrl}}" mode="widthFix" />
+           <view class="zan" >
+               <image class="xin_icon" src="../../images/shou_icon.png" mode="widthFix"></image>
+               <view class="zan_num">
+                   {{item.voteNum}}
+               </view>
+           </view>  
+        </view>
+        
+   </view>
+
+
+</view>
+  

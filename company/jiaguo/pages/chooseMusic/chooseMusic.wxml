@@ -1,0 +1,46 @@
+<view class="container">
+    <view class="shade" ></view>
+    <view class="music_header" >
+        <view class="music_con" >
+            <view class="music_showwrap" >
+                <view class="create_btn" bindtap="createVideo">生成</view>
+                <view class="music_name" >{{nowMusicName}}</view> 
+                <view class="gramophone_wrap" >
+                    <image class="music_s1" src="../../images/music_s1.png" mode="widthFix"/>
+                    <image class="music_s2" src="../../images/music_s2.png" mode="widthFix"/>
+                    <image class="music_s3 {{isPlay? 'music_act':''}} " src="../../images/music_s3.png" mode="widthFix"/>
+                </view> 
+                <view class="progress_wrap" >
+                    <view class="progress_con" >
+                        <view class="music_onoff" bindtap="musiconoff">
+                            <image wx:if="{{isPlay}}" src="../../images/music_on.png" mode="widthFix" />
+                            <image wx:else src="../../images/music_off.png" mode="widthFix" />                             
+                        </view>
+                        <view class="progress_cen" >
+                            <view class="progress_no"></view>
+                            <view class="progress_yes" style="width:{{pro}}%"></view>      
+                        </view>
+                        <!-- <view class="music_times" >
+                            00:{{duration}}
+                        </view> -->
+                    </view>
+                </view>   
+                <audio  bindtimeupdate="musicpro" src="{{nowMusicUrl}}" id="myAudio" style="display:none" loop></audio>
+
+
+            </view>
+        </view>
+        <image class="music_f" src="../../images/music_f.png" mode="widthFix" />  
+    
+    <view class="music_footer" >
+        <scroll-view class="music_list" scroll-x  style="width: 100%;">
+            <view class="music_con1" style="width:{{musicList.length*287}}rpx" >
+                
+                <view bindtap="switchover"  wx:for="{{musicList}}" wx:key="{{index}}" class="music_item {{nowMusicId == item.sceneId? 'act':''}} " data-name="{{item.name}}" data-url="{{item.audioUrl}}" data-id="{{item.sceneId}}">{{item.name}}</view>
+                
+            </view>
+           
+        </scroll-view>
+    </view>
+</view>
+</view>

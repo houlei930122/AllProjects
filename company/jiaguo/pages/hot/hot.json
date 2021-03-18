@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText":"热门",
+  "backgroundTextStyle": "dark" ,
+  "disableScroll": true,
+  "enablePullDownRefresh": false
+ 
+}

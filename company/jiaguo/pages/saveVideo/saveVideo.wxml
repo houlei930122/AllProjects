@@ -1,0 +1,12 @@
+
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <view class="video_item" wx:for="{{list}}" wx:key="s"   hover-class="none" hover-stop-propagation="false">
+        <video class="" id="video{{item.id}}" src="{{item.src}}" poster="{{item.cover}}" controls="true" bindplay="signplay">
+        
+        </video>
+    </view> 
+    <view class="xiazai" type="promise" bindtap="downvideo">
+        下载
+    </view>
+</view>
+

@@ -1,0 +1,118 @@
+
+.container{
+    position: relative;
+    width: 100%;
+}
+.container  .header_con{
+    position: relative;
+    width: 100%;
+    height: 352rpx;
+    padding-top:190rpx; 
+    background-image: url('https://adproject.thepaper.cn/adproject/2019/8/jiaguo/my_bg.png');
+    background-size:100% 100%; 
+}
+.header_wrap{
+    position: absolute;
+    top: 36rpx;
+    left: 50%;
+    margin-left: -70rpx;
+    width: 140rpx;
+    height: 140rpx;
+    padding: 8rpx;
+    background:linear-gradient(180deg, rgba(255,225,101,1), rgba(235,172,42,1));
+    border-radius: 140rpx;
+    overflow: hidden;
+}
+.header_img{
+  width: 100%;
+  height: 100%;
+  border-radius: 140rpx;
+}
+.container .my_name{
+    position: relative;
+    width: 100%;
+    height:40rpx;
+    font-size:30rpx;
+    text-align: center;
+    font-family:MicrosoftYaHei-Bold;
+    font-weight:bold;
+    color:rgba(245,247,253,1);
+    line-height:40rpx;
+}
+.container .sumdata_wrap{
+    position: relative;
+    width: 100%;
+    margin-top: 35rpx;
+    /* margin-bottom: 32rpx; */
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+}
+.sumdata_wrap .zan_num{
+    display: inline;
+    font-size:30rpx;
+    font-family:MicrosoftYaHei;
+    color:rgba(245,247,253,1);
+    line-height:40rpx;
+}
+.sumdata_wrap .num_tit{
+    display: inline;
+    font-size:24rpx;
+    font-family:MicrosoftYaHei;
+    color:rgba(143,147,157,1);  
+}
+.sumdata_wrap .share_num{
+    display: inline;
+    font-size:30rpx;
+    font-family:MicrosoftYaHei;
+    color:rgba(245,247,253,1);
+    line-height:40rpx;
+    padding-left: 40rpx;
+}
+.container .video_list{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 100rpx;
+    margin-top: -16rpx;
+}
+.video_list .video_item{
+    position: relative;
+    width: 250rpx;
+    height: 444rpx;
+    float: left;
+    border-right: 1rpx solid #000;
+    border-bottom: 4rpx solid #000;
+    box-sizing: border-box;
+    background-size:cover; 
+    margin-bottom: 4rpx;
+}
+.video_list .video_item:nth-of-type(3n+3){
+    width: 250rpx;
+    border-right: none;
+}
+.video_item .video_cover{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.video_item .zan{
+    position: absolute;
+    left: 20rpx;
+    bottom: 20rpx;
+    height: 30rpx;
+    font-size:24rpx;
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+}
+.zan .xin_icon{
+    float: left;
+    width: 30rpx;
+}
+.zan .zan_num{
+    /* display: inline; */
+    float: left;
+    height: 30rpx;
+    line-height: 30rpx;
+    padding-left: 10rpx;
+}

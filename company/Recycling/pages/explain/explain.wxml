@@ -1,0 +1,36 @@
+<view class="container">
+    <image class="logo" src="../../images/logo.png" mode="widthFix" > </image>
+    <scroll-view scroll-x style="width: 100% 100%">
+        <view class="content" >
+            
+            <view class="tit">
+                『 关键词搜索 』
+            </view>
+            <view class="tit_msg" >
+                 请输入垃圾正确的中文名称（包含材质） 
+            </view>
+            <view class="tit_msg" style="margin-bottom:100rpx;">
+                 如：易拉罐、烟蒂、陶瓷碗等。
+            </view>
+             <view class="tit">
+                『 分享澎友 』
+            </view>
+            <view class="tit_msg" >
+                  点击右上角“…”分享给澎友 
+            </view>
+            <view class="tit_msg" style="margin-bottom:100rpx;">
+                生活垃圾分类不再烧脑
+            </view>
+             <view class="tit">
+                『 声明 』 
+            </view>
+            <view class="tit_msg" >
+                 识别查询系统仅供参考 
+            </view>
+            <view class="tit_msg" style="margin-bottom:100rpx;">
+                 具体分类要求以属地专业管理部门为准。
+            </view>
+
+        </view>
+    </scroll-view>
+</view>

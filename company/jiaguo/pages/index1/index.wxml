@@ -1,0 +1,34 @@
+<view class="container" >
+
+  <view class="video_list"  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+    <view class="video_wrap" animation="{{animationData}}" >   
+      <block wx:for="{{tipList}}" wx:key="s" wx:for-index="ind" >
+        <view class="video_con" style="height:{{h}}px">
+          <view class="video_cen"  bindtap="ballClickEvent">
+            {{ind}}
+            <video wx:if="{{ind == playIndex || ind == playIndex-1 || ind == playIndex+1}}" id="{{'video'+ind}}" show-center-play-btn="{{true}}" play-btn-position="center" autoplay="{{playIndex == ind ? true :false}}" enable-play-gesture="{{true}}" show-fullscreen-btn="{{false}}" controls="{{false}}"  loop  src="{{item.videoUrl}}" auto-pause-if-navigate auto-pause-if-open-native>
+            
+            </video>
+            <cover-image wx:if="{{ind == playIndex && isPause}}" class="paly_btn" src="../../images/play_btn.png" > </cover-image>
+          </view>
+         
+           
+        
+           
+        </view>
+      </block>
+    </view>
+ </view>
+ <cover-view class="tip" bindtap="tip">
+    推荐
+  </cover-view>
+  <cover-view class="upimg" bindtap="goupimg">
+    上传图片
+  </cover-view>
+   <cover-view class="hot" bindtap="hot">
+    热门
+  </cover-view>
+  <button class="getUserInfo" wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <!-- <image class="headImg" src="{{userInfo.headImgUrl}}" mode="widthFix"  /> -->
+    
+</view>

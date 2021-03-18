@@ -1,0 +1,10 @@
+<scroll-view class="city-scroll" scroll-y="true" scroll-with-animation="true">
+    <view class="container">
+        <view class="hot_tit">热门城市</view>
+        <view class="list_wrap">
+            <view class=" {{actIndex == item.id ? 'act':''}} item" wx:for="{{hotList}}" wx:key="h" data-id="{{item.id}}" bindtap="goindex">
+                {{item.name}}
+            </view>
+        </view>
+    </view>
+</scroll-view>

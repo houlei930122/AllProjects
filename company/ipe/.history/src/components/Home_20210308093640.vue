@@ -200,7 +200,7 @@ export default {
         ]
       },    
     ],
-    timer:null,
+    timer:null
       // hideall: false,//全部行业
       // sortIndex: 0,
       // allData:[],

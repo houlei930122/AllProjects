@@ -1,0 +1,101 @@
+<wxs module="fn">
+      module.exports = {
+          tochange: function(num){
+            var b = (num/1000).toFixed(1) ;
+            if(b>1){
+              return b+'w'
+            }
+            return num
+          },
+          hasid: function(arr,item){
+            for(var i = 0 ; i< arr.length;i++){
+              if(arr[i] == item){
+                return true 
+              }
+            }
+            return false
+          }
+          
+      }
+</wxs>
+
+<view class="container" >
+
+  <view class="video_list"  wx:if="{{!hasUserInfo}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+    <view class="video_wrap" animation="{{animationData}}" >   
+      <block wx:for="{{tipList}}" wx:key="s" wx:for-index="ind" >
+        <view class="video_con" style="height:{{h}}px">
+          <view class="video_cen"  bindtap="ballClickEvent">
+            <video wx:if="{{ind == playIndex || ind == playIndex-1 || ind == playIndex+1}}" id="{{'video'+ind}}" show-center-play-btn="{{true}}" play-btn-position="center" 
+            custom-cache="{{false}}"
+            autoplay="{{playIndex == ind ? true :false}}" object-fit="cover" enable-play-gesture="{{true}}" show-fullscreen-btn="{{false}}" controls="{{false}}" binderror="playerr"  loop  src="{{item.videoUrl}}" auto-pause-if-navigate auto-pause-if-open-native>
+            
+            </video>
+            <cover-image wx:if="{{ind == playIndex && isPause}}" class="paly_btn" src="../../images/play_btn.png" > </cover-image>
+          </view>
+          <cover-view class="header_img" >
+            <cover-image class="" src="{{item.userHeadImgUrl}}" ></cover-image>
+          </cover-view>
+          <cover-view class="like_wrap" bindtap="zan" data-choose="{{fn.hasid(zanArr,item.id)}}"  data-videoid="{{item.id}}" data-voteNum="{{item.voteNum}}">
+              <cover-image wx:if="{{!fn.hasid(zanArr,item.id)}}" class="like_icon" src="../../images/like_n.png" ></cover-image>
+              <cover-image wx:else class="like_icon" src="../../images/new_l.png" ></cover-image>
+              <cover-view class="like_num" >{{  fn.tochange(item.voteNum)}}</cover-view>
+          </cover-view>
+          <cover-image bindtap="sharemosk" class="share_video"  src="../../images/new_s.png" data-videoid="{{item.id}}" data-sharevideo="{{item.videoUrl}}" data-cover="{{item.imgUrl}}" data-username="{{item.userName}}"
+           
+          ></cover-image>  
+          <!-- <cover-view class="share_video share_1" >
+            <button class="share " id="share" open-type="share"  data-videoid="{{item.id}}"  data-cover="{{item.imgUrl}}">wqewqe</button>
+          </cover-view> -->
+          <cover-image class="my" bindtap="gomy" src="../../images/new_m.png" ></cover-image>  
+
+        </view>
+      </block>
+    </view>
+ </view>
+<!-- 底部 -->
+<cover-view class="footer" wx:if="{{footerH}}">
+  <cover-image class="footer_bg" src="../../images/footer_bg.png" ></cover-image>
+  <cover-view class="footer_cen" >
+      <cover-view bindtap="tip" class="{{ !sort ? 'act':''}}  tuijian" >推荐</cover-view>
+      <cover-view bindtap="hot" class="{{ sort ? 'act':''}} renmen" >热门</cover-view>
+  </cover-view>
+  <cover-image class="go_up" bindtap="goupimg" src="../../images/go_up.png" ></cover-image> 
+</cover-view>
+<cover-view class="footer1" wx:else>
+  <cover-image class="footer_bg" src="../../images/footer_bg1.png" ></cover-image>
+  <cover-view class="footer_cen" >
+      <cover-view bindtap="tip" class="{{ !sort ? 'act':''}}  tuijian" >推荐</cover-view>
+      <cover-view bindtap="hot" class="{{ sort ? 'act':''}} renmen" >热门</cover-view>
+  </cover-view>
+  <cover-image class="go_up" bindtap="goupimg" src="../../images/go_up.png" ></cover-image> 
+</cover-view>
+
+  
+<view class="authorization"  wx:if="{{hasUserInfo}}" >
+  <view class="authorization_con" >
+      <view class="author_msg" >
+        授权后，您可以看到更精彩内容～
+      </view>
+      <view class="author_btn" >
+        授权 
+        <button class="getUserInfo"open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+      </view>
+  </view>
+</view>
+
+<cover-view class="share_wrap" wx:if="{{shareMosk}}">
+  <cover-view class="share_con">
+      <button class="share"  id="share" open-type="share" >
+        <cover-image class="shareicon" src="../../images/new_s1.png"></cover-image>
+      </button>   
+      <cover-image bindtap="saveVideo"  class="savevideo"  src="../../images/new_s2.png"></cover-image>     
+      <cover-image bindtap="savecard"  class="savecard"  src="../../images/new_s3.png"></cover-image>     
+  </cover-view>
+  <cover-view class="close_share" bindtap="closeshare"> 
+    <cover-image src="../../images/del_icon.png" ></cover-image>
+  </cover-view>
+</cover-view> 
+<canvas canvas-id="shareCanvas" style="width:1125px;height:2436px; opacity:0;position: fixed;left: -1125px;top: -2436px;"></canvas>
+    
+</view>

@@ -1,0 +1,52 @@
+<wxs module="fn">
+      module.exports = {
+          tochange: function(num){
+            var b = (num/1000).toFixed(1) ;
+            if(b>1){
+              return b+'w'
+            }
+            return num
+          },
+          hasid: function(arr,item){
+            for(var i = 0 ; i< arr.length;i++){
+              if(arr[i] == item){
+                return true 
+              }
+            }
+            return false
+          }
+          
+      }
+</wxs>
+<view class="container">
+  <view class="video_con">
+    <view class="video_cen" bindtap="ballClickEvent">
+      <video id="sharevideo" show-center-play-btn="{{true}}" play-btn-position="center" autoplay="{{true}}" enable-play-gesture="{{true}}" show-fullscreen-btn="{{false}}" controls="{{false}}" loop src="{{video.videoUrl}}" auto-pause-if-navigate auto-pause-if-open-native object-fit="cover"></video>
+      <cover-image wx:if="{{isPause}}" class="paly_btn" src="../../images/play_btn.png"></cover-image>
+    </view>
+    <cover-view class="header_img">
+      <cover-image class="" src="{{video.userHeadImgUrl}}"></cover-image>
+    </cover-view>
+    <cover-view class="like_wrap" bindtap="zan" data-videoid="{{video.id}}" data-votenum="{{video.voteNum}}">
+      <cover-image wx:if="{{!zan}}" class="like_icon" src="../../images/like_n.png"></cover-image>
+      <cover-image wx:else class="like_icon" src="../../images/new_l.png"></cover-image>
+      <cover-view class="like_num">{{  fn.tochange(video.voteNum)}}</cover-view>
+    </cover-view>
+    <cover-image bindtap="sharemosk" class="share_video" src="../../images/new_s.png" data-videoid="{{video.id}}" data-sharevideo="{{video.videoUrl}}" data-cover="{{video.imgUrl}}" data-username="{{video.userName}}"></cover-image>
+  </view>
+  <cover-view class="share_wrap" wx:if="{{shareMosk}}">
+    <cover-view class="share_con">
+       <button class="share"  id="share" open-type="share" >
+        <cover-image class="shareicon" src="../../images/new_s1.png"></cover-image>
+      </button>   
+      <cover-image bindtap="saveVideo"  class="savevideo"  src="../../images/new_s2.png"></cover-image>     
+      <cover-image bindtap="savecard"  class="savecard"  src="../../images/new_s3.png"></cover-image>     
+    </cover-view>
+    <cover-view class="close_share" bindtap="closeshare">
+      <cover-image src="../../images/del_icon.png"></cover-image>
+    </cover-view>
+  </cover-view>
+
+  <cover-image class="create_icon" src="../../images/create_icon.png" bindtap="gohome"> </cover-image>
+<canvas canvas-id="shareCanvas" style="width:1125px;height:2436px; opacity:0;position: fixed;left: -1125px;top: -2436px;"></canvas>
+</view>

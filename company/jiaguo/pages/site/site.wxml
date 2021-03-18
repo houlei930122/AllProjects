@@ -1,0 +1,42 @@
+<view class="container">
+        <view class="content">
+            <view class="all-city">
+            
+                <scroll-view class="city-scroll" scroll-y="true">
+                   <!-- 通用模板 -->
+                    <view class="tong_wrap">
+                        <view class="tong_tit" >
+                            通用片头 
+                        </view>
+                        <view class="tong_img" >
+                            <view class="timg_wrap timg1" data-tid="11" bindtap="ty">
+                                <image class="t_img" src="../../images/timg3.png" mode="widthFix"></image>
+                                <!-- <view class="t_msg" >长城篇</view>   -->
+                            </view>
+                            <view class="timg_wrap" data-tid="14"  bindtap="ty">
+                                <image class="t_img" src="../../images/timg2.png" mode="widthFix"></image>
+                            </view>
+                            <view class="timg_wrap timg1" data-tid="15"  bindtap="ty">
+                                <image class="t_img" src="../../images/timg1.png" mode="widthFix"></image>
+                            </view>
+                            <view class="timg_wrap" data-tid="13"  bindtap="ty">
+                                <image class="t_img" src="../../images/timg4.png" mode="widthFix"></image>
+                            </view>
+                        </view>
+
+                    </view>
+
+                    <!-- 所在城市 -->
+                    <view class="hotadd_wrap" >
+                        <view class="hot_tit">所在城市<text class="" >（如列表中没有您的所在城市，请选择通用片头）</text></view>
+                        <view class="hot_list">
+                            <view class="{{ chooseid == item.name ? 'act':'' }}  hot_item" wx:for="{{hotList}}" wx:key="add" catchtap="selectcity" data-addname="{{item.name}}">
+                                {{item.name}}
+                            </view>
+                        </view> 
+                    </view>
+                </scroll-view>
+            </view>
+           
+        </view>
+</view>

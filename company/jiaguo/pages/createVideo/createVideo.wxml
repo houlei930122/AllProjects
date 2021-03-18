@@ -1,0 +1,82 @@
+<view class="container" >
+    <!-- <image class="video_cover" wx:if="{{loading}}" src="{{thumbnailImg}}" mode="widthFix"></image> -->
+    <view class="video_cover" wx:if="{{loading}}"  ></view>
+    <view class="hint_create" wx:if="{{loading}}">
+        <view class="hint_con" >
+            <view class="hint_pro1" style="width:{{pro}}%"></view>
+            <view class="hint_pro2" ></view>
+            <view class="hint_text">
+                已制作{{100-pro}}%
+            </view>
+        </view>
+        <!-- 手机号信息输入 -->
+        <view class="tel_wrap" wx:if="{{!tel}}">
+          <view class="tel_tit">联系方式</view>
+          <view class="tel_tit1">请留手机号，以便作品被选中后，小编与您联系</view>
+          <view class="tel_input">
+            <input class="telinput" value="" type="number" placeholder="" placeholder-style="" bindinput="telval">
+              
+            </input>
+          </view>
+          <view class="tel_btn" bindtap="savetel">确定</view>
+        </view>
+
+
+    </view> 
+    <video class="video" id="video" src="{{videoSrc}}" wx:if="{{!loading}}" object-fit="cover" controls="{{true}}"   direction="0" ></video>
+        
+    
+    <cover-view class="handle_wrap" wx:if="{{!loading}}">
+        <cover-view class="handle_con">
+            <cover-view bindtap="gohome" class="btn {{btnact == '0' ? 'btnact':''}}" >
+              <cover-image class="icon" mode='widthFix' src="../../images/h_icon.png" ></cover-image>
+            </cover-view>
+            <cover-view bindtap="showredact" class="btn {{btnact == '1' ? 'btnact':''}}" >
+              <cover-image class="icon" mode='widthFix' src="../../images/b_icon.png" ></cover-image>
+            </cover-view>
+            <cover-view class="btn {{btnact == '2' ? 'btnact':''}}" bindtap="saveVideo">
+              <cover-image class="icon" mode='widthFix' src="../../images/save_icon.png" ></cover-image>
+            </cover-view>
+            <cover-view  bindtap="sharemosk" class="btn {{btnact == '3' ? 'btnact':''}}"  data-videoid="{{videoId}}"  data-cover="{{thumbnailImg}}">
+              <cover-image class="icon" mode='widthFix' src="../../images/s_icon.png" ></cover-image>
+            </cover-view>
+        </cover-view>    
+    </cover-view>
+
+    <view class="redact_wrap" wx:if="{{redact}}">
+      <view class="redact_con">
+        <view class="redact">
+          <view class="redact_item" bindtap="go1">
+            <image src="../../images/bianji_yin.png"></image>
+            <view class="redact_msg">修改影集</view>
+          </view>
+          <view class="redact_item"  bindtap="go2">
+            <image src="../../images/bianji_tu.png"></image>
+            <view class="redact_msg">更换图片</view>
+          </view>
+          <view class="redact_item"  bindtap="go3">
+            <image src="../../images/bianji_m.png"></image>
+            <view class="redact_msg">更换音乐</view>
+          </view>
+          <view class="redact_item" bindtap="delvideo">
+            <image src="../../images/bianji_del.png"></image>
+            <view class="redact_msg">删除</view>
+          </view>
+        </view>
+      </view>
+      <image class="close_redact" bindtap="hideredact" src="../../images/del_icon.png"></image>
+    </view>
+
+    <cover-view class="share_wrap" wx:if="{{false}}">
+      <cover-view class="share_con">
+          <button class="share"  id="share" open-type="share" >
+            <cover-image class="shareicon" src="../../images/share_f1.png"></cover-image>
+          </button>   
+          <cover-image bindtap="saveVideo"  class="savevideo"  src="../../images/share_p1.png"></cover-image>     
+      </cover-view>
+      <cover-view class="close_share" bindtap="closeshare"> 
+        <cover-image src="../../images/del_icon.png" ></cover-image>
+      </cover-view>
+    </cover-view> 
+</view>
+  

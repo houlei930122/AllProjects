@@ -1,0 +1,123 @@
+<view class="container">
+    <view class="header_wrap" >
+        <view class="header_bar">
+            <view class="{{status==0? 'act':''}} sort" bindtap="switchTab" data-id="0">
+                可回收物
+            </view>
+            <view class="{{status==1? 'act':''}} sort" bindtap="switchTab" data-id="1">
+                湿垃圾
+            </view>
+            <view class="{{status==2? 'act':''}} sort" bindtap="switchTab" data-id="2">
+                有害垃圾
+            </view>
+            <view class="{{status==3? 'act':''}} sort" bindtap="switchTab" data-id="3">
+                干垃圾
+            </view>
+        </view>
+    </view>
+    <!-- 跳转icon -->
+    <view class="search_wrap">
+        <!-- <navigator class="sacn" url="../scan/scan" hover-class="navigator-hover" open-type="navigate">
+            <image class="" src="../../images/scan_icon.png" mode="widthFix"></image>
+        </navigator> -->
+        <navigator class="search" url="../search/search" hover-class="navigator-hover" open-type="navigate">
+            <image class="" src="../../images/search_icon.png" mode="widthFix"></image>
+        </navigator> 
+    </view>
+    <!-- 内容区 -->
+    <view class="content">
+        <swiper bindchange="slip" class="swiper" current="{{status}}"> 
+            <swiper-item>
+                <scroll-view class="slide_con" scroll-x="false" scroll-y="true" >
+                   <view class="no_data" wx:if="{{sort.sort1.length == 0}}">
+                       <image class="empty" src="../../images/empty.png" mode="widthFix"></image> 
+                   </view>
+                   <view class="list" wx:else>
+                        <view class="item" wx:for="{{sort.sort1}}" wx:key="item" bindtap="goshare" 
+                        data-id="{{item.id}}"  data-sort="{{item.sort}}" data-img="{{item.url}}"  data-date="{{item.date}}">
+                            <view class="img_wrap">
+                                <image src="{{item.url}}" mode="aspectFill" lazy-load="true"></image>
+                            </view>
+                            <view class="time">
+                                {{item.date}}
+                            </view>
+                        </view>  
+                   </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class="slide_con" scroll-x="false" scroll-y="true" >
+                   <view class="no_data" wx:if="{{sort.sort2.length == 0}}">
+                       <image class="empty" src="../../images/empty.png" mode="widthFix"></image> 
+                   </view>
+                   <view class="list" wx:else>
+                        <view class="item" wx:for="{{sort.sort2}}" wx:key="item" bindtap="goshare" 
+                        data-id="{{item.id}}"  data-sort="{{item.sort}}" data-img="{{item.url}}"  data-date="{{item.date}}">
+                            <view class="img_wrap">
+                                <image src="{{item.url}}" mode="aspectFill" lazy-load="true"></image>
+                            </view>
+                            <view class="time">
+                                {{item.date}}
+                            </view>
+                        </view>  
+                   </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view class="slide_con" scroll-x="false" scroll-y="true" >
+                   <view class="no_data" wx:if="{{sort.sort3.length == 0}}">
+                       <image class="empty" src="../../images/empty.png" mode="widthFix"></image> 
+                   </view>
+                   <view class="list" wx:else>
+                        <view class="item" wx:for="{{sort.sort2}}" wx:key="item" bindtap="goshare" 
+                        data-id="{{item.id}}"  data-sort="{{item.sort}}" data-img="{{item.url}}"  data-date="{{item.date}}">
+                            <view class="img_wrap">
+                                <image src="{{item.url}}" mode="aspectFill" lazy-load="true"></image>
+                            </view>
+                            <view class="time">
+                                {{item.date}}
+                            </view>
+                        </view>  
+                   </view>
+                </scroll-view>
+            </swiper-item>
+             <swiper-item >
+                <scroll-view class="slide_con" scroll-x="false" scroll-y="true" >
+                   <view class="no_data" wx:if="{{sort.sort4.length == 0}}">
+                       <image class="empty" src="../../images/empty.png" mode="widthFix"></image> 
+                   </view>
+                   <view class="list" wx:else>
+                        <view class="item" wx:for="{{sort.sort2}}" wx:key="item" bindtap="goshare" 
+                        data-id="{{item.id}}"  data-sort="{{item.sort}}" data-img="{{item.url}}"  data-date="{{item.date}}">
+                            <view class="img_wrap">
+                                <image src="{{item.url}}" mode="aspectFill" lazy-load="true"></image>
+                            </view>
+                            <view class="time">
+                                {{item.date}}
+                            </view>
+                        </view>  
+                   </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+
+
+    </view>
+    <!-- 分享 -->
+    <view class="shade" wx:if="{{shade}}" bindtap="hideShare"></view>
+    <view class="shade_center" wx:if="{{shade}}">
+        <view class="shareimg_w">
+            <image class="img" src="{{shareImg}}" mode="widthFix"></image>   
+            <view class="img_msg">
+                {{shareDate}}识别该类垃圾
+            </view>
+        </view>
+        <view class="share_btn">
+            <image class="btn_bg" src="../../images/share_btn.png" mode="widthFix"></image>
+            <button class="sahre" id="share" open-type="share"></button>
+            
+        </view>
+    </view>  
+    
+
+</view>
